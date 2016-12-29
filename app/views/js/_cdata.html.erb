@@ -1,0 +1,1231 @@
+<script>
+    //<![CDATA[
+        window.$S = {};
+        $S.global_conf = {
+            "premium_apps": ["HtmlApp", "EcwidApp", "MailChimpApp", "CeleryApp", "LocuApp"],
+            "environment": "production",
+            "host_suffix": "strikingly.com", //sambok-production.com
+            "asset_url": "https://assets.strikingly.com",
+            "locale": "en",
+            "in_china": false,
+            "browser_locale": null,
+            "is_sxl": false,
+            "user_image_cdn": {
+                "qn": "//7xpea4.com1.z0.glb.clouddn.com"
+            },
+            "SEGMENTIO_API_KEY": "eb3txa37hi",
+            "FACEBOOK_APP_ID": "138736959550286",
+            "WECHAT_APP_ID": null,
+            "WECHAT_MP_APP_ID": "",
+            "KEEN_IO_PROJECT_ID": "5317e03605cd66236a000002",
+            "KEEN_IO_WRITE_KEY": "efd460f8e282891930ff1957321c12b64a6db50694fd0b4a01d01f347920dfa3ce48e8ca249b5ea9917f98865696cfc39bc6814e4743c39af0a4720bb711627d9cf0fe63d5d52c3866c9c1c3178aaec6cbfc1a9ab62a3c9a827d2846a9be93ecf4ee3d61ebee8baaa6a1d735bff6e37b",
+            "FIREBASE_URL": "", //"bobcat.firebaseIO.com",
+            "CLOUDINARY_CLOUD_NAME": "hrscywv4p",
+            "CLOUDINARY_PRESET": "oxbxiyxl",
+            "rollout": {
+                "advanced_layouts": true,
+                "new_mobile_actions": true,
+                "background_for_all_sections": false,
+                "wechat_sharing": false,
+                "new_wechat_oauth": false
+            }
+        };
+        $S.app_instances = [];
+        $S.nav = [{
+            "name": null,
+            "uid": null
+        }];
+        $S.conf = {
+            "pages_show_static_path": "https://assets.strikingly.com/assets/pages_show_static-bfc9d0027deee7229146ddcec36276a1.js",
+            "keenio_collection": "strikingly_pageviews",
+            "keenio_collection_sharding": "strikingly_pageviews-11300001-11400000",
+            "keenio_pbs_impression_collection": "strikingly_pbs_impression",
+            "keenio_pbs_conversion_collection": "strikingly_pbs_conversion",
+            "keenio_pageservice_imageshare_collection": "strikingly_pageservice_imageshare",
+            "keenio_page_socialshare_collection": "strikingly_page_socialshare",
+            "keenio_page_framing_collection": "strikingly_page_framing",
+            "keenio_file_download_collection": "strikingly_file_download",
+            "keenio_ecommerce_buyer_landing": "strikingly_ecommerce_buyer_landing",
+            "keenio_ecommerce_buyer_viewed_checkout_dialog": "strikingly_ecommerce_buyer_viewed_checkout_dialog",
+            "keenio_ecommerce_buyer_completed_shipping_address": "strikingly_ecommerce_buyer_completed_shipping_address",
+            "keenio_ecommerce_buyer_selected_payment_method": "strikingly_ecommerce_buyer_selected_payment_method",
+            "keenio_ecommerce_buyer_canceled_order": "strikingly_ecommerce_buyer_canceled_order",
+            "keenio_ecommerce_buyer_added_item_to_cart": "strikingly_ecommerce_buyer_added_item_to_cart",
+            "is_screenshot_rendering": false,
+            "contact_form_layouts_feature": true,
+            "ecommerce_stripe_alipay": false,
+            "headless_render": null,
+            "wx_instant_follow": false
+        };
+        $S.fonts = {
+            "abril fatface": "\"abril fatface\", georgia, serif",
+            "quando": "\"quando\", serif",
+            "josefin slab": "\"josefin slab\", georgia, serif",
+            "trocchi": "trocchi, georgia, serif",
+            "lato": "lato, helvetica, sans-serif",
+            "roboto": "roboto, helvetica, sans-serif",
+            "raleway": "raleway, helvetica, sans-serif",
+            "playfair display": "\"playfair display\", serif",
+            "bitter": "bitter, georgia, serif",
+            "vollkorn": "\"vollkorn\", times, georgia, serif",
+            "titillium": "\"titillium web\", titillium, helvetica, sans-serif",
+            "bebas neue": "\"bebas neue\", bebas, helvetica, sans-serif",
+            "brandon": "\"brandon grotesque\", brandon, helvetica, sans-serif",
+            "tisa": "tisa, georgia, serif",
+            "garamond": "garamond, serif",
+            "gotham rounded": "\"gotham rounded\", helvetica, sans-serif",
+            "arial": "arial, sans-serif",
+            "georgia": "georgia, serif",
+            "arapey": "arapey, georgia, serif",
+            "titillium web": "\"titillium web\", titillium, helvetica, sans-serif",
+            "dosis": "dosis, \"terminal dosis\", helvetica, sans-serif",
+            "arvo": "arvo, georgia, serif",
+            "roboto slab": "\"roboto slab\", helvetica, sans-serif",
+            "montserrat": "montserrat, helvetica, sans-serif",
+            "nunito": "nunito, helvetica, sans-serif",
+            "archivo narrow": "\"archivo narrow\", helvetica, sans-serif",
+            "cardo": "cardo, georgia, serif",
+            "old standard tt": "\"old standard tt\", georgia, serif",
+            "pt sans narrow": "\"pt sans narrow\", sans-serif",
+            "lora": "lora, georgia, serif",
+            "istok web": "\"istok web\", helvetica, sans-serif",
+            "chewy": "chewy, helvetica, sans-serif",
+            "great vibes": "\"great vibes\", cursive",
+            "parisienne": "parisienne, cursive",
+            "dancing script": "\"dancing script\", cursive",
+            "roboto condensed": "\"roboto condensed\", sans-serif",
+            "hei": "\"Open Sans\", \"Lucida Grande\", \"Verdana\", \"Pingfang SC\", \"Pingfang TC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+            "song": "\"Cardo\", \"STSong\", \"Songti SC\", \"SimSun\", serif",
+            "kai": "\"Times New Roman\", STKaiTi, KaiTi, Kaiti_GB2312, serif",
+            "open sans": "\"open sans\", helvetica, sans-serif",
+            "source sans pro": "\"source sans pro\", helvetica, sans-serif",
+            "work sans": "work sans, helvetica, sans-serif"
+        };
+        $S.country_list = {};
+        $S.stores = {
+            "showStatic": {
+                "footerLogoSeoData": {
+                    "anchor_link": "https://www.strikingly.com/?ref=logo\u0026permalink=sambok\u0026custom_domain=\u0026utm_campaign=footer_pbs\u0026utm_content=http%3A%2F%2Fsambok.strikingly.com%2F\u0026utm_medium=user_page\u0026utm_source=footer_logo",
+                    "anchor_text": "Powered by Strikingly - Best website builder for the mobile age"
+                },
+                "isEditMode": false
+            },
+            "pageData": {
+                "type": "Site",
+                "id": "f_91c9c8d2-ecd7-4d64-bb2e-57778ac9c69f",
+                "defaultValue": null,
+                "horizontal": false,
+                "fixedSocialMedia": false,
+                "new_page": true,
+                "showMobileNav": true,
+                "showCookieNotification": false,
+                "showTermsAndConditions": false,
+                "multi_pages": false,
+                "showNav": true,
+                "showFooter": true,
+                "showStrikinglyLogo": true,
+                "showNavigationButtons": false,
+                "showButtons": true,
+                "navFont": "",
+                "titleFont": "raleway",
+                "logoFont": "",
+                "bodyFont": "raleway",
+                "headingFont": "raleway",
+                "theme": "fresh",
+                "templateVariation": "",
+                "templatePreset": "blue",
+                "termsText": null,
+                "fontPreset": null,
+                "pages": [{
+                    "type": "Page",
+                    "id": "f_4a727834-e6e4-4d22-96c2-4ecf6d0d31ff",
+                    "defaultValue": null,
+                    "sections": [{
+                        "type": "Slide",
+                        "id": "f_ee6e8aff-80d1-4dde-acd1-c4ce07f96b9f",
+                        "defaultValue": null,
+                        "template_id": null,
+                        "template_name": "title",
+                        "components": {
+                            "slideSettings": {
+                                "type": "SlideSettings",
+                                "id": "f_62736a9e-7695-4b5e-be93-38afef5c5851",
+                                "defaultValue": false,
+                                "show_nav": true,
+                                "nameChanged": null,
+                                "name": "SAMBOK PRODUCTION",
+                                "sync_key": null,
+                                "layout_variation": "center-subTop-full",
+                                "display_settings": {}
+                            },
+                            "text1": {
+                                "type": "RichText",
+                                "id": "f_695b06a8-922e-4e49-833d-54ca9869598e",
+                                "defaultValue": false,
+                                "value": "\u003cp style=\"text-align:center\"\u003eSAMBOK PRODUCTION\u003c/p\u003e",
+                                "backupValue": "\u003cdiv style=\"text-align: center;\"\u003e\u003cspan\u003eEckhart \u003c/span\u003eConsulting\u003c/div\u003e",
+                                "version": 1
+                            },
+                            "text2": {
+                                "type": "RichText",
+                                "id": "f_b3812424-2790-42ed-9318-5c3a5f1ad6de",
+                                "defaultValue": false,
+                                "value": "\u003cp\u003eMAKING WHAT THE WORLD WANTS\u003c/p\u003e",
+                                "backupValue": "\u003cdiv\u003e\u003cem\u003eStudent-Driven Strategy Consulting\u003c/em\u003e\u003c/div\u003e",
+                                "version": 1
+                            },
+                            "text3": {
+                                "type": "RichText",
+                                "id": "f_ef3680c8-605b-4a66-b382-9cfbcd01901b",
+                                "defaultValue": true,
+                                "value": "Lorem ipsum",
+                                "backupValue": null,
+                                "version": null
+                            },
+                            "media1": {
+                                "type": "Media",
+                                "id": "f_91df4741-9c12-42cd-ab72-a6273b23aa4b",
+                                "defaultValue": false,
+                                "video": {
+                                    "type": "Video",
+                                    "id": "f_0ab3dac6-9659-44f1-b21a-f0166ba5dc58",
+                                    "defaultValue": true,
+                                    "html": "",
+                                    "url": "http://vimeo.com/12236680",
+                                    "thumbnail_url": null,
+                                    "maxwidth": 700,
+                                    "description": null
+                                },
+                                "image": {
+                                    "type": "Image",
+                                    "id": "f_72a185be-5d4e-4c1d-b2d0-06200fcf4254",
+                                    "defaultValue": false,
+                                    "link_url": null,
+                                    "thumb_url": "!",
+                                    "url": "!",
+                                    "caption": "",
+                                    "description": "",
+                                    "storageKey": "1084360/그림1_ifrddq",
+                                    "storage": "c",
+                                    "format": "png",
+                                    "h": 608,
+                                    "w": 1200,
+                                    "s": 105760,
+                                    "new_target": true
+                                },
+                                "current": "image"
+                            },
+                            "background1": {
+                                "type": "Background",
+                                "id": "f_136f7987-cbf6-4b52-b551-368f258b0b15",
+                                "defaultValue": false,
+                                "url": "https://uploads.strikinglycdn.com/static/backgrounds/pastel-solids/39.jpg",
+                                "textColor": "light",
+                                "backgroundVariation": "",
+                                "sizing": "tile",
+                                "userClassName": "",
+                                "videoUrl": "",
+                                "videoHtml": "",
+                                "storageKey": null,
+                                "storage": null,
+                                "format": null,
+                                "h": 900,
+                                "w": 1600,
+                                "s": null
+                            },
+                            "button1": {
+                                "type": "Button",
+                                "id": "f_6540110b-b700-4081-8ac9-c0b437d872d3",
+                                "defaultValue": false,
+                                "text": "",
+                                "url": "",
+                                "new_target": false
+                            }
+                        }
+                    }, {
+                        "type": "Slide",
+                        "id": "f_b08ab42f-f0d4-4145-9ca7-9cecc4149a81",
+                        "defaultValue": null,
+                        "template_id": null,
+                        "template_name": "text",
+                        "components": {
+                            "slideSettings": {
+                                "type": "SlideSettings",
+                                "id": "f_504acf0a-e501-45b7-9dab-6ac7b029de91",
+                                "defaultValue": null,
+                                "show_nav": true,
+                                "nameChanged": null,
+                                "name": "About",
+                                "sync_key": null,
+                                "layout_variation": "text-one-text",
+                                "display_settings": {}
+                            },
+                            "background1": {
+                                "type": "Background",
+                                "id": "f_d18ca134-5217-49a3-8e32-846c78d907b6",
+                                "defaultValue": false,
+                                "url": "",
+                                "textColor": "light",
+                                "backgroundVariation": "",
+                                "sizing": "cover",
+                                "userClassName": null,
+                                "videoUrl": "",
+                                "videoHtml": "",
+                                "storageKey": null,
+                                "storage": null,
+                                "format": null,
+                                "h": null,
+                                "w": null,
+                                "s": null
+                            },
+                            "text1": {
+                                "type": "RichText",
+                                "id": "f_303f0853-fbb1-400f-a702-64b89e1d08cf",
+                                "defaultValue": false,
+                                "value": "\u003cp\u003eAbout\u003c/p\u003e",
+                                "backupValue": "\u003cdiv\u003eWho We Are\u003c/div\u003e",
+                                "version": 1
+                            },
+                            "text2": {
+                                "type": "RichText",
+                                "id": "f_890987ea-73f1-4193-8046-97e5e9af0278",
+                                "defaultValue": true,
+                                "value": "",
+                                "backupValue": "",
+                                "version": 1
+                            },
+                            "repeatable1": {
+                                "type": "Repeatable",
+                                "id": "f_50fff204-e1f3-40d6-9491-dcaf181cd2e8",
+                                "defaultValue": false,
+                                "list": [{
+                                    "type": "RepeatableItem",
+                                    "id": "f_01576cf4-cc73-4cac-9096-aa8f2f91a0b2",
+                                    "defaultValue": null,
+                                    "components": {
+                                        "text1": {
+                                            "type": "RichText",
+                                            "id": "f_7a5e4100-80b3-4a4a-b264-3751812ed4c4",
+                                            "defaultValue": false,
+                                            "value": "\u003cp style=\"text-align: center;\"\u003e청년영상제작크루 삼복프로덕션은 웹드라마, 웹무비 등&nbsp;\u003c/p\u003e\u003cp style=\"text-align: center;\"\u003e모바일 중심 영상 콘텐츠를 만듭니다.\u003c/p\u003e\u003cp style=\"text-align: center;\"\u003e&nbsp;\u003c/p\u003e\u003cp style=\"text-align: center;\"\u003e삼복의 보양식같이 건강한 영상을 만드는 것,\u003c/p\u003e\u003cp style=\"text-align: center;\"\u003e삼복이 바라보는 지향점입니다.\u003c/p\u003e",
+                                            "backupValue": "Title Text",
+                                            "version": 1
+                                        },
+                                        "text2": {
+                                            "type": "RichText",
+                                            "id": "f_818d92a2-7533-4253-b199-b303892845ad",
+                                            "defaultValue": false,
+                                            "value": "",
+                                            "backupValue": "Use a text section to describe your values, or show more info, or summarize a topic, or tell a story. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.",
+                                            "version": 1
+                                        },
+                                        "button1": {
+                                            "type": "Button",
+                                            "id": "f_7b59dc90-a10c-414a-bd8d-31a38e3ff3b8",
+                                            "defaultValue": true,
+                                            "text": "",
+                                            "url": "",
+                                            "new_target": null
+                                        }
+                                    }
+                                }],
+                                "components": {
+                                    "text1": {
+                                        "type": "RichText",
+                                        "id": "f_a91d6742-6494-483f-992f-96f3cd9a4055",
+                                        "defaultValue": true,
+                                        "value": "Title Text",
+                                        "backupValue": null,
+                                        "version": null
+                                    },
+                                    "text2": {
+                                        "type": "RichText",
+                                        "id": "f_a8450e11-55b6-43bb-bddd-ba9b931a3c9b",
+                                        "defaultValue": true,
+                                        "value": "Use a text section to describe your values, or show more info, or summarize a topic, or tell a story. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.",
+                                        "backupValue": null,
+                                        "version": null
+                                    }
+                                }
+                            }
+                        }
+                    }, {
+                        "type": "Slide",
+                        "id": "f_08c31988-a6b0-40ef-97b4-3858deb14293",
+                        "defaultValue": null,
+                        "template_id": null,
+                        "template_name": "media",
+                        "components": {
+                            "slideSettings": {
+                                "type": "SlideSettings",
+                                "id": "f_08f17f37-aaaa-4cc8-8691-86f8398f8f09",
+                                "defaultValue": false,
+                                "show_nav": true,
+                                "nameChanged": null,
+                                "name": "Our Work",
+                                "sync_key": null,
+                                "layout_variation": "media-center-text",
+                                "display_settings": {}
+                            },
+                            "background1": {
+                                "type": "Background",
+                                "id": "f_3856f299-3458-44ac-a1e8-0b7be5a5dcf8",
+                                "defaultValue": true,
+                                "url": "",
+                                "textColor": "light",
+                                "backgroundVariation": "",
+                                "sizing": "cover",
+                                "userClassName": null,
+                                "videoUrl": "",
+                                "videoHtml": "",
+                                "storageKey": null,
+                                "storage": null,
+                                "format": null,
+                                "h": null,
+                                "w": null,
+                                "s": null
+                            },
+                            "text1": {
+                                "type": "RichText",
+                                "id": "f_069d95b5-caff-402b-bbcb-da8b4e59f8a8",
+                                "defaultValue": false,
+                                "value": "\u003cp\u003eOur Work\u003c/p\u003e",
+                                "backupValue": "",
+                                "version": 1
+                            },
+                            "text2": {
+                                "type": "RichText",
+                                "id": "f_67d980de-2bc0-49ea-beaa-54f10107cb74",
+                                "defaultValue": true,
+                                "value": "",
+                                "backupValue": "",
+                                "version": 1
+                            },
+                            "repeatable1": {
+                                "type": "Repeatable",
+                                "id": "f_dc519710-f809-4729-8b96-0c6bbe12cd58",
+                                "defaultValue": false,
+                                "list": [{
+                                    "type": "RepeatableItem",
+                                    "id": "f_bb1ee383-5367-482c-a133-a97e80b0e05d",
+                                    "defaultValue": null,
+                                    "components": {
+                                        "media1": {
+                                            "type": "Media",
+                                            "id": "f_117e2786-e87b-48bc-ab5c-dbf1af6f210b",
+                                            "defaultValue": false,
+                                            "video": {
+                                                "type": "Video",
+                                                "id": "f_04e5c7ae-c14e-4ac6-a4d2-9549e9819a37",
+                                                "defaultValue": true,
+                                                "html": "",
+                                                "url": "http://vimeo.com/12236680",
+                                                "thumbnail_url": null,
+                                                "maxwidth": 700,
+                                                "description": null
+                                            },
+                                            "image": {
+                                                "type": "Image",
+                                                "id": "f_e91bdf65-1df7-49b5-b660-33cbdb76766b",
+                                                "defaultValue": false,
+                                                "link_url": null,
+                                                "thumb_url": null,
+                                                "url": "!",
+                                                "caption": "",
+                                                "description": "",
+                                                "storageKey": "https://images.unsplash.com/photo-1423666639041-f56000c27a9a",
+                                                "storage": "un",
+                                                "format": null,
+                                                "h": 725,
+                                                "w": 1092,
+                                                "s": null,
+                                                "new_target": true
+                                            },
+                                            "current": "image"
+                                        },
+                                        "text1": {
+                                            "type": "RichText",
+                                            "id": "f_f8010cbf-26f9-4afe-9f34-cd5f59ae5fbc",
+                                            "defaultValue": false,
+                                            "value": "\u003cp\u003eMobile Video\u003c/p\u003e",
+                                            "backupValue": "\u003cdiv\u003eOur Work\u003c/div\u003e",
+                                            "version": 1
+                                        },
+                                        "text2": {
+                                            "type": "RichText",
+                                            "id": "f_21f8fb32-17c5-434f-8742-46c6067f5dc4",
+                                            "defaultValue": false,
+                                            "value": "\u003cp\u003e\u003cstrong\u003e&#8203;\u003c/strong\u003e\u003c/p\u003e",
+                                            "backupValue": "",
+                                            "version": 1
+                                        },
+                                        "text3": {
+                                            "type": "RichText",
+                                            "id": "f_4db6ab31-0e90-403d-9f84-6440ab38983a",
+                                            "defaultValue": false,
+                                            "value": "\u003cp\u003eSNS를 중심으로 하는 모바일 영상 콘텐츠 시장에 발맞춰\u003c/p\u003e\u003cp\u003e삼복프로덕션은 스토리라인을 중심으로 하는 웹드라마, 웹무비를 제작합니다.\u003c/p\u003e\u003cp\u003e이를 통해, 우리는 세상이 원하는 이야기를 함께 만들어 나가고자 합니다.\u003c/p\u003e",
+                                            "backupValue": "\u003cdiv\u003eOur organization works with a wide variety of clients, from established Chicago organizations to start-ups just entering the market.\u003c/div\u003e",
+                                            "version": 1
+                                        },
+                                        "button1": {
+                                            "type": "Button",
+                                            "id": "f_b9d302c5-828c-4669-8dca-0e1ab86e9cc5",
+                                            "defaultValue": true,
+                                            "text": "",
+                                            "url": "",
+                                            "new_target": null
+                                        }
+                                    }
+                                }, {
+                                    "type": "RepeatableItem",
+                                    "id": "f_877f817a-0809-42e7-bfa3-872dc45a519c",
+                                    "defaultValue": null,
+                                    "components": {
+                                        "media1": {
+                                            "type": "Media",
+                                            "id": "f_d35170f6-2774-4da7-9970-4a8abc6b1b2a",
+                                            "defaultValue": false,
+                                            "video": {
+                                                "type": "Video",
+                                                "id": "f_04e5c7ae-c14e-4ac6-a4d2-9549e9819a37",
+                                                "defaultValue": true,
+                                                "html": "",
+                                                "url": "http://vimeo.com/12236680",
+                                                "thumbnail_url": null,
+                                                "maxwidth": 700,
+                                                "description": null
+                                            },
+                                            "image": {
+                                                "type": "Image",
+                                                "id": "f_e91bdf65-1df7-49b5-b660-33cbdb76766b",
+                                                "defaultValue": false,
+                                                "link_url": "",
+                                                "thumb_url": "/assets/icons/transparent.png",
+                                                "url": "/assets/icons/transparent.png",
+                                                "caption": "",
+                                                "description": "",
+                                                "storageKey": null,
+                                                "storage": null,
+                                                "format": null,
+                                                "h": null,
+                                                "w": null,
+                                                "s": null,
+                                                "new_target": true
+                                            },
+                                            "current": "image"
+                                        },
+                                        "text1": {
+                                            "type": "RichText",
+                                            "id": "f_a1d924cf-8543-4fd1-90a8-e3ac7d660a2b",
+                                            "defaultValue": false,
+                                            "value": "",
+                                            "backupValue": "\u003cdiv\u003eOur Work\u003c/div\u003e",
+                                            "version": 1
+                                        },
+                                        "text2": {
+                                            "type": "RichText",
+                                            "id": "f_456b7435-294a-4524-94b7-490c873fe46b",
+                                            "defaultValue": false,
+                                            "value": "",
+                                            "backupValue": "",
+                                            "version": 1
+                                        },
+                                        "text3": {
+                                            "type": "RichText",
+                                            "id": "f_f322f217-1c75-44fc-973a-9aec8cc37f26",
+                                            "defaultValue": false,
+                                            "value": "\u003cp\u003e또한, 바이럴 마케팅 영상이나 현장스케치 영상 등\u003c/p\u003e\u003cp\u003e다양한 사람들을 만나고, 소통할 수 있는 곳으로 삼복은 찾아갑니다.\u003c/p\u003e",
+                                            "backupValue": "\u003cdiv\u003eOur organization works with a wide variety of clients, from established Chicago organizations to start-ups just entering the market.\u003c/div\u003e",
+                                            "version": 1
+                                        },
+                                        "button1": {
+                                            "type": "Button",
+                                            "id": "f_882c8010-79ee-4f4e-a930-c2529a97db5e",
+                                            "defaultValue": true,
+                                            "text": "",
+                                            "url": "",
+                                            "new_target": null
+                                        }
+                                    }
+                                }],
+                                "components": {
+                                    "media1": {
+                                        "type": "Media",
+                                        "id": "f_af172b78-99cd-42fe-9fd0-ce247658c479",
+                                        "defaultValue": true,
+                                        "video": {
+                                            "type": "Video",
+                                            "id": "f_6fbe3028-ae47-44d5-8d9c-96a41eae7f73",
+                                            "defaultValue": true,
+                                            "html": "",
+                                            "url": "http://vimeo.com/12236680",
+                                            "thumbnail_url": null,
+                                            "maxwidth": 700,
+                                            "description": null
+                                        },
+                                        "image": {
+                                            "type": "Image",
+                                            "id": "f_50840a44-14df-40cc-8014-1184ed96c88f",
+                                            "defaultValue": true,
+                                            "link_url": null,
+                                            "thumb_url": "http://uploads.strikinglycdn.com/static/backgrounds/striking-pack-3/7.jpg",
+                                            "url": "http://uploads.strikinglycdn.com/static/backgrounds/striking-pack-3/7.jpg",
+                                            "caption": "",
+                                            "description": "",
+                                            "storageKey": null,
+                                            "storage": null,
+                                            "format": null,
+                                            "h": null,
+                                            "w": null,
+                                            "s": null,
+                                            "new_target": true
+                                        },
+                                        "current": "image"
+                                    },
+                                    "text1": {
+                                        "type": "RichText",
+                                        "id": "f_31e2e430-ca6b-45cc-bbc1-f3e1e6ff8e6e",
+                                        "defaultValue": true,
+                                        "value": "Some caption here",
+                                        "backupValue": null,
+                                        "version": null
+                                    },
+                                    "text2": {
+                                        "type": "RichText",
+                                        "id": "f_95dad0af-1bbe-469b-a800-55aff966af1d",
+                                        "defaultValue": true,
+                                        "value": "A small tagline",
+                                        "backupValue": null,
+                                        "version": null
+                                    },
+                                    "text3": {
+                                        "type": "RichText",
+                                        "id": "f_7d9398c8-c873-40ef-b4d8-e451876ed088",
+                                        "defaultValue": true,
+                                        "value": "A sentence or two describing this item.",
+                                        "backupValue": null,
+                                        "version": null
+                                    }
+                                }
+                            }
+                        }
+                    }, {
+                        "type": "Slide",
+                        "id": "f_301d0667-9d3a-41e9-9461-b4225a6cbaca",
+                        "defaultValue": null,
+                        "template_id": null,
+                        "template_name": "columns",
+                        "components": {
+                            "slideSettings": {
+                                "type": "SlideSettings",
+                                "id": "f_d4cdcb6a-ff3d-4f85-9018-7ce8e22aed64",
+                                "defaultValue": null,
+                                "show_nav": true,
+                                "nameChanged": null,
+                                "name": "Working Process",
+                                "sync_key": null,
+                                "layout_variation": "media-center-text",
+                                "display_settings": {}
+                            },
+                            "background1": {
+                                "type": "Background",
+                                "id": "f_27f170eb-4caf-48b4-9afa-ed530de9f146",
+                                "defaultValue": true,
+                                "url": "",
+                                "textColor": "light",
+                                "backgroundVariation": "",
+                                "sizing": "cover",
+                                "userClassName": null,
+                                "videoUrl": "",
+                                "videoHtml": "",
+                                "storageKey": null,
+                                "storage": null,
+                                "format": null,
+                                "h": null,
+                                "w": null,
+                                "s": null
+                            },
+                            "text1": {
+                                "type": "RichText",
+                                "id": "f_c612c3ad-51bd-43be-b455-747a5e8c4e77",
+                                "defaultValue": false,
+                                "value": "\u003cp\u003eWorking Process\u003c/p\u003e",
+                                "backupValue": "Profiles",
+                                "version": 1
+                            },
+                            "text2": {
+                                "type": "RichText",
+                                "id": "f_9846c5bf-36e8-40e6-85ae-6ec34065874b",
+                                "defaultValue": false,
+                                "value": "\u003cp\u003eJust suitable for your project\u003c/p\u003e",
+                                "backupValue": "We've got a top notch team!",
+                                "version": 1
+                            },
+                            "repeatable1": {
+                                "type": "Repeatable",
+                                "id": "f_92f6b114-2b8b-4a06-80d4-998f45e6b703",
+                                "defaultValue": false,
+                                "list": [{
+                                    "type": "RepeatableItem",
+                                    "id": "f_bcb56407-b180-47a3-bd10-0d63bbe3d815",
+                                    "defaultValue": true,
+                                    "components": {
+                                        "media1": {
+                                            "type": "Media",
+                                            "id": "f_d1402222-fabb-4c53-a9af-8a5d1385f576",
+                                            "defaultValue": true,
+                                            "video": {
+                                                "type": "Video",
+                                                "id": "f_03c9a647-c55c-4215-b9b1-9489680e8c6b",
+                                                "defaultValue": true,
+                                                "html": "",
+                                                "url": "http://vimeo.com/18150336",
+                                                "thumbnail_url": null,
+                                                "maxwidth": 700,
+                                                "description": null
+                                            },
+                                            "image": {
+                                                "type": "Image",
+                                                "id": "f_fddb4ce7-452e-4136-a355-18dada6ef316",
+                                                "defaultValue": false,
+                                                "link_url": null,
+                                                "thumb_url": "!",
+                                                "url": "!",
+                                                "caption": "",
+                                                "description": "",
+                                                "storageKey": "1084360/22_ro6ur6",
+                                                "storage": "c",
+                                                "format": "png",
+                                                "h": 255,
+                                                "w": 1116,
+                                                "s": 10948,
+                                                "new_target": true
+                                            },
+                                            "current": "image"
+                                        },
+                                        "text1": {
+                                            "type": "RichText",
+                                            "id": "f_e7012806-aba3-439c-86da-f5312ecb9ac4",
+                                            "defaultValue": false,
+                                            "value": "\u003cp\u003e기획부터 수정까지\u003c/p\u003e",
+                                            "backupValue": "Title Text",
+                                            "version": 1
+                                        },
+                                        "text2": {
+                                            "type": "RichText",
+                                            "id": "f_1eeb4a09-9f4a-470b-b153-6fa9c80725f7",
+                                            "defaultValue": false,
+                                            "value": "",
+                                            "backupValue": "A small tagline",
+                                            "version": 1
+                                        },
+                                        "text3": {
+                                            "type": "RichText",
+                                            "id": "f_9a513bbc-6565-49b5-afa3-dc13e1bfded1",
+                                            "defaultValue": false,
+                                            "value": "\u003cp\u003e우리의 제작과정은 처음부터 끝까지 제작하려는 콘텐츠 위주로 구성됩니다.\u003c/p\u003e\u003cp\u003e기본 프로세스를 토대로 스토리라인에 따라 개별 프로세스를 세부 설정한 뒤에\u003c/p\u003e\u003cp\u003e기획을 시작하며, 컨펌 이후에도 2회에 걸쳐 추가 수정을 진행합니다.\u003c/p\u003e",
+                                            "backupValue": "A sentence or two describing this item. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.",
+                                            "version": 1
+                                        },
+                                        "button1": {
+                                            "type": "Button",
+                                            "id": "f_d74eccfa-ff7d-4191-90c9-87b242d33e7e",
+                                            "defaultValue": true,
+                                            "text": "",
+                                            "url": "",
+                                            "new_target": null
+                                        }
+                                    }
+                                }],
+                                "components": {
+                                    "media1": {
+                                        "type": "Media",
+                                        "id": "f_9c6bb285-34e5-42a3-960d-70be413a557b",
+                                        "defaultValue": true,
+                                        "video": {
+                                            "type": "Video",
+                                            "id": "f_b4fdba36-834b-43d4-9a34-750c19438d6e",
+                                            "defaultValue": null,
+                                            "html": "",
+                                            "url": "http://vimeo.com/18150336",
+                                            "thumbnail_url": null,
+                                            "maxwidth": 700,
+                                            "description": null
+                                        },
+                                        "image": {
+                                            "type": "Image",
+                                            "id": "f_2eef8c1c-5367-4c57-87ba-0339d8be2e70",
+                                            "defaultValue": true,
+                                            "link_url": null,
+                                            "thumb_url": "//assets.strikingly.com/static/icons/delicate/14.png",
+                                            "url": "//assets.strikingly.com/static/icons/delicate/14.png",
+                                            "caption": "",
+                                            "description": "",
+                                            "storageKey": null,
+                                            "storage": null,
+                                            "format": null,
+                                            "h": null,
+                                            "w": null,
+                                            "s": null,
+                                            "new_target": true
+                                        },
+                                        "current": "image"
+                                    },
+                                    "text1": {
+                                        "type": "RichText",
+                                        "id": "f_638a813d-ba07-436f-ba50-7c9df8ed6bc9",
+                                        "defaultValue": true,
+                                        "value": "Title Text",
+                                        "backupValue": null,
+                                        "version": null
+                                    },
+                                    "text2": {
+                                        "type": "RichText",
+                                        "id": "f_bf04b119-eb1b-480c-97ae-4bf5d1fc946e",
+                                        "defaultValue": true,
+                                        "value": "A small tagline",
+                                        "backupValue": null,
+                                        "version": null
+                                    },
+                                    "text3": {
+                                        "type": "RichText",
+                                        "id": "f_1f2f8705-b251-4574-b302-06741eecb998",
+                                        "defaultValue": true,
+                                        "value": "A sentence or two describing this item. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.",
+                                        "backupValue": null,
+                                        "version": null
+                                    },
+                                    "button1": {
+                                        "type": "Button",
+                                        "id": "f_94e5889f-c7aa-4dc4-9e45-9657043ff94e",
+                                        "defaultValue": true,
+                                        "text": "",
+                                        "url": "",
+                                        "new_target": null
+                                    }
+                                }
+                            }
+                        }
+                    }, {
+                        "type": "Slide",
+                        "id": "f_a26d9c3e-3692-4d83-afd8-580172059da5",
+                        "defaultValue": null,
+                        "template_id": null,
+                        "template_name": "contact_form",
+                        "components": {
+                            "slideSettings": {
+                                "type": "SlideSettings",
+                                "id": "f_3d39c8c7-1b59-4b51-8a3e-ec08d78e677f",
+                                "defaultValue": null,
+                                "show_nav": true,
+                                "nameChanged": null,
+                                "name": "Contact",
+                                "sync_key": null,
+                                "layout_variation": "skinny",
+                                "display_settings": {
+                                    "hide_form": false,
+                                    "show_map": false,
+                                    "show_info": false
+                                }
+                            },
+                            "text1": {
+                                "type": "RichText",
+                                "id": "f_89bd60f2-e4c6-4652-9713-78fc9765caf1",
+                                "defaultValue": false,
+                                "value": "\u003cp\u003eContact\u003c/p\u003e",
+                                "backupValue": "\u003cdiv\u003eClient Inquiry Form\u003c/div\u003e",
+                                "version": 1
+                            },
+                            "text2": {
+                                "type": "RichText",
+                                "id": "f_c1769af6-4a83-4d5d-bef2-8e58397e55fb",
+                                "defaultValue": false,
+                                "value": "\u003cp\u003esambokproduction@naver.com\u003c/p\u003e",
+                                "backupValue": "\u003cdiv\u003e\u003cem\u003ePlease fill out the following form and we will respond as soon as possible.\u003c/em\u003e\u003c/div\u003e",
+                                "version": 1
+                            },
+                            "background1": {
+                                "type": "Background",
+                                "id": "f_0d0d40ef-c390-477d-a509-8c36483fd817",
+                                "defaultValue": false,
+                                "url": "https://uploads.strikinglycdn.com/static/backgrounds/pastel-solids/39.jpg",
+                                "textColor": "light",
+                                "backgroundVariation": "",
+                                "sizing": "tile",
+                                "userClassName": null,
+                                "videoUrl": "",
+                                "videoHtml": "",
+                                "storageKey": null,
+                                "storage": null,
+                                "format": null,
+                                "h": 900,
+                                "w": 1600,
+                                "s": null
+                            },
+                            "email1": {
+                                "type": "EmailForm",
+                                "id": "f_01111039-98d0-4187-96bc-9e7d2a34824d",
+                                "defaultValue": false,
+                                "hideMessageBox": false,
+                                "hide_name": false,
+                                "hide_email": false,
+                                "hide_phone_number": true,
+                                "name_label": "Name",
+                                "email_label": "Email",
+                                "phone_number_label": "Phone",
+                                "message_label": "Message",
+                                "submit_label": "Submit",
+                                "thanksMessage": "감사합니다. 곧 연락드리겠습니다'-'*",
+                                "recipient": "",
+                                "label": null
+                            },
+                            "contactInfo1": {
+                                "type": "ContactInfo",
+                                "id": "f_5fe7d8a7-3d9b-4322-8007-0eda44f72bac",
+                                "defaultValue": false,
+                                "address": "충무로영상센터 131호",
+                                "phone": "",
+                                "hours": null,
+                                "email": "ihs-315@hanmail.net"
+                            }
+                        }
+                    }],
+                    "title": null,
+                    "uid": null,
+                    "path": null,
+                    "autoPath": null
+                }],
+                "menu": {
+                    "type": "Menu",
+                    "id": "f_54310d53-5ba2-4793-bd59-b00da4081629",
+                    "defaultValue": null,
+                    "template_name": "navbar",
+                    "logo": null,
+                    "components": {
+                        "background1": {
+                            "type": "Background",
+                            "id": "f_76c941dc-c059-4061-ba2c-b0642a1f396b",
+                            "defaultValue": true,
+                            "url": "http://uploads.strikinglycdn.com/static/backgrounds/striking-pack-2/28.jpg",
+                            "textColor": "light",
+                            "backgroundVariation": "",
+                            "sizing": "cover",
+                            "userClassName": null,
+                            "videoUrl": "",
+                            "videoHtml": "",
+                            "storageKey": null,
+                            "storage": null,
+                            "format": null,
+                            "h": null,
+                            "w": null,
+                            "s": null
+                        },
+                        "image1": {
+                            "type": "Image",
+                            "id": "f_a8010fa7-c561-4eea-8293-793825093faf",
+                            "defaultValue": true,
+                            "link_url": null,
+                            "thumb_url": null,
+                            "url": null,
+                            "caption": "",
+                            "description": "",
+                            "storageKey": null,
+                            "storage": null,
+                            "format": null,
+                            "h": null,
+                            "w": null,
+                            "s": null,
+                            "new_target": true
+                        },
+                        "image2": {
+                            "type": "Image",
+                            "id": "f_8e37c922-ca0c-408d-9623-00fd9782d212",
+                            "defaultValue": false,
+                            "link_url": null,
+                            "thumb_url": null,
+                            "url": "http://assets.strikingly.com/assets/themes/fresh/power.png",
+                            "caption": "",
+                            "description": "",
+                            "storageKey": null,
+                            "storage": null,
+                            "format": null,
+                            "h": 37,
+                            "w": 32,
+                            "s": null,
+                            "new_target": true
+                        },
+                        "text1": {
+                            "type": "RichText",
+                            "id": "f_b91c547a-71fd-412c-bbe0-ae1233468cf3",
+                            "defaultValue": false,
+                            "value": "",
+                            "backupValue": "Title Text",
+                            "version": 1
+                        },
+                        "text2": {
+                            "type": "RichText",
+                            "id": "f_ddec1bbb-3d45-468d-9a29-ec30cb3ae201",
+                            "defaultValue": true,
+                            "value": "Subtitle Text",
+                            "backupValue": null,
+                            "version": null
+                        },
+                        "button1": {
+                            "type": "Button",
+                            "id": "f_81f80351-4ea1-4e4e-b0e9-c09e7342fd3d",
+                            "defaultValue": false,
+                            "text": "",
+                            "url": "",
+                            "new_target": null
+                        }
+                    }
+                },
+                "footer": {
+                    "type": "Footer",
+                    "id": "f_2d75fc34-40d5-416b-bb48-e437be8b670c",
+                    "defaultValue": false,
+                    "socialMedia": null,
+                    "copyright": null,
+                    "components": {
+                        "socialMedia": {
+                            "type": "SocialMediaList",
+                            "id": "f_52dc7699-9380-4e8d-9500-e51618c95e8f",
+                            "defaultValue": false,
+                            "link_list": [{
+                                "type": "Facebook",
+                                "id": "f_fb575513-2565-4b44-a349-d3f33678ff1c",
+                                "defaultValue": null,
+                                "url": "",
+                                "link_url": null,
+                                "share_text": null,
+                                "app_id": null,
+                                "show_button": true
+                            }, {
+                                "type": "Twitter",
+                                "id": "f_12dc1fa5-5caa-448e-a64f-1a34e9124eab",
+                                "defaultValue": null,
+                                "url": "",
+                                "link_url": null,
+                                "share_text": null,
+                                "show_button": true
+                            }, {
+                                "type": "GPlus",
+                                "id": "f_04af9afd-7b31-45c7-8aa9-81b0f774c0cb",
+                                "defaultValue": null,
+                                "url": "",
+                                "link_url": null,
+                                "share_text": null,
+                                "show_button": false
+                            }, {
+                                "type": "LinkedIn",
+                                "id": "f_c23a9d9c-510f-44a9-b8a5-ac57779e97de",
+                                "defaultValue": null,
+                                "url": "",
+                                "link_url": null,
+                                "share_text": null,
+                                "show_button": false
+                            }, {
+                                "type": "Instagram",
+                                "id": "f_598befde-e913-4b3b-a68f-37e16fe5e8c9",
+                                "defaultValue": null,
+                                "url": "",
+                                "link_url": null,
+                                "share_text": null,
+                                "show_button": false
+                            }],
+                            "button_list": [{
+                                "type": "Facebook",
+                                "id": "f_55cb59a1-a151-4ade-bd94-cd8022bf954b",
+                                "defaultValue": false,
+                                "url": "",
+                                "link_url": "",
+                                "share_text": "",
+                                "app_id": 543870062356274,
+                                "show_button": false
+                            }, {
+                                "type": "Twitter",
+                                "id": "f_48056a2f-5715-4d2a-8523-3a6ad0f2cbd0",
+                                "defaultValue": false,
+                                "url": "",
+                                "link_url": "",
+                                "share_text": "",
+                                "show_button": false
+                            }, {
+                                "type": "GPlus",
+                                "id": "f_31a4f1f7-2a6d-4159-90c7-121a859ce637",
+                                "defaultValue": false,
+                                "url": "",
+                                "link_url": "",
+                                "share_text": "",
+                                "show_button": false
+                            }, {
+                                "type": "LinkedIn",
+                                "id": "f_37c15ea1-fafe-4ce5-b15d-01a359744f1c",
+                                "defaultValue": null,
+                                "url": "",
+                                "link_url": "",
+                                "share_text": "",
+                                "show_button": false
+                            }, {
+                                "type": "Pinterest",
+                                "id": "f_556422fc-3a95-4c75-9b41-17dbe863ba9e",
+                                "defaultValue": null,
+                                "url": "",
+                                "link_url": null,
+                                "share_text": null,
+                                "show_button": false
+                            }],
+                            "list_type": null
+                        },
+                        "copyright": {
+                            "type": "RichText",
+                            "id": "f_287cb485-8a5e-43d3-9cfb-25574bc440fe",
+                            "defaultValue": false,
+                            "value": "\u003cp\u003eCopyright © 2016 - 2017 SAMBOK PRODUCTION. All rights reserved.\u003c/p\u003e",
+                            "backupValue": "\u003cp\u003eCopyright © 2016 - 2017 SAMBOK PRODUCTION. All rights reserved.\u003c/p\u003e",
+                            "version": 1
+                        },
+                        "background1": {
+                            "type": "Background",
+                            "id": "f_db5a5f9e-c57d-4194-b541-ff2663dd5c3c",
+                            "defaultValue": true,
+                            "url": "",
+                            "textColor": "light",
+                            "backgroundVariation": "",
+                            "sizing": "cover",
+                            "userClassName": null,
+                            "videoUrl": "",
+                            "videoHtml": "",
+                            "storageKey": null,
+                            "storage": null,
+                            "format": null,
+                            "h": null,
+                            "w": null,
+                            "s": null
+                        }
+                    },
+                    "layout_variation": "vertical"
+                },
+                "submenu": {
+                    "type": "SubMenu",
+                    "id": "f_ddfa82c3-639d-4692-aec1-8c25b1d22ca2",
+                    "defaultValue": null,
+                    "list": [],
+                    "components": {
+                        "link": {
+                            "type": "Button",
+                            "id": "f_ac2840fa-0c02-426c-945a-9d198cfdd1a2",
+                            "defaultValue": null,
+                            "text": "Facebook",
+                            "url": "http://www.facebook.com",
+                            "new_target": true
+                        }
+                    }
+                },
+                "customColors": {
+                    "type": "CustomColors",
+                    "id": "f_4ff18a62-104a-4017-b152-6b5cf2ae6bd9",
+                    "defaultValue": null,
+                    "active": true,
+                    "highlight1": "#fa8c97",
+                    "highlight2": null
+                },
+                "navigation": {}
+            },
+            "pageMeta": {
+                "user": {
+                    "membership": "free",
+                    "id": 1084360
+                },
+                "category": null,
+                "s4_migration": {
+                    "is_migrated": false,
+                    "is_retired_theme": false,
+                    "has_custom_code": false
+                },
+                "page_groups": [],
+                "slide_names": ["SAMBOK PRODUCTION", "About", "Our Work", "Working Process", "Contact"],
+                "theme": {
+                    "name": "bright"
+                },
+                "connected_sites": [],
+                "linkedin_app": false,
+                "is_weitie_page": false,
+                "forced_locale": "en",
+                "mobile_actions": {
+                    "phone": null,
+                    "sms": null,
+                    "location": null,
+                    "email": null,
+                    "version": "v2",
+                    "actions": []
+                },
+                "public_url": "http://sambok.strikingly.com/",
+                "current_path": "/",
+                "current_path_params": {},
+                "rollouts": {
+                    "custom_code": true,
+                    "pro_sections": false,
+                    "pro_apps": false,
+                    "new_settings_dialog_feature": true,
+                    "sections_name_sync": true
+                },
+                "site_mode": "show",
+                "google": {
+                    "enable_ga_universal": false,
+                    "analytics_tracker": null,
+                    "analytics_type": null,
+                    "site_checker": null
+                },
+                "facebook_pixel_id": null,
+                "optimizely": {
+                    "project_id": null,
+                    "experiment_id": null
+                },
+                "id": 11348244,
+                "permalink": "sambok",
+                "created_at": "2016-12-27T05:05:03.187-08:00",
+                "logo_url": "//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_630,w_1200,f_auto/v1/1084360/a_cckkf8.png",
+                "icon_url": "//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_64,w_64,f_auto/v1/1084360/asd_qspuzv.png",
+                "description": "",
+                "name": "SAMBOK PRODUCTION",
+                "social_media_config": {
+                    "url": "http://sambok.strikingly.com/",
+                    "title": "SAMBOK PRODUCTION",
+                    "image": "//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_630,w_1200,f_auto/v1/1084360/a_cckkf8.png",
+                    "description": "",
+                    "fb_app_id": "138736959550286"
+                },
+                "keenio_config": {
+                    "keenio_project_id": "5317e03605cd66236a000002",
+                    "keenio_write_key": "efd460f8e282891930ff1957321c12b64a6db50694fd0b4a01d01f347920dfa3ce48e8ca249b5ea9917f98865696cfc39bc6814e4743c39af0a4720bb711627d9cf0fe63d5d52c3866c9c1c3178aaec6cbfc1a9ab62a3c9a827d2846a9be93ecf4ee3d61ebee8baaa6a1d735bff6e37b"
+                },
+                "show_strikingly_logo": true,
+                "show_navigation_buttons": false,
+                "social_media": null,
+                "has_optimizely": false,
+                "optimizely_experiment_id": null,
+                "services": [],
+                "strk_upvt": "OVdsVUtsd1I0c0VnRS9IK3I2S1UvSCtBR05uMjM3N1lzR3pTNnFSa0FnbzY3WUJ0TUE3MXlGb3VCVjZoREdEdU1DT1lYOHlqZEFZdDJpSDhRclhYNnVvR3QxTk5ETVlqKzJiT2IrMWQyVVREWGE2cGxnWGNpQ3dtdVJRRHp6VERFVGoyZVBMVjEybHUzdUIveWN0cVVRPT0tLSs4WmdFM0JhcXNrVjNRMDhvWllNZ0E9PQ==--0242d9d571d1a38a9b3adfef9914472cd882a9fe",
+                "strk_ga_tracker": "UA-25124444-6",
+                "google_analytics_tracker": null,
+                "google_analytics_type": null,
+                "exception_tracking": true,
+                "ecommerce": {
+                    "seller_wechat_app_id": null
+                }
+            }
+        };
+        $S.blink = {
+            "page": {
+                "logo_url": "//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_630,w_1200,f_auto/v1/1084360/a_cckkf8.png",
+                "weitie_url": "http://sambok.weitie.co",
+                "description": "",
+                "name": "SAMBOK PRODUCTION"
+            },
+            "conf": {
+                "WECHAT_APP_ID": "wxd009fb01de1ec8b5"
+            }
+        };
+    //]]>
+</script>
