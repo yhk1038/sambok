@@ -12,21 +12,20 @@
     <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
     <link rel="canonical" href="<%= $app_url %>">
     <title><%= $app_title %></title>
-    
     <%#= render partial: 'js/cdata', layout: false %>
     
     <!--meta attributes-->
     <meta content="<%= $app_title %>" property="og:title">
     <meta content="<%= $app_url %>" property="og:url">
-    <meta content="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_630,w_1200,f_auto/v1/1084360/a_cckkf8.png" property="og:image">
+    <meta content="<%= $app_logo_path %>" property="og:image">
     <meta content="<%= $app_title %>" property="og:site_name">
-    <meta content="" property="og:description">
+    <meta content="<%= $app_description %>" property="og:description">
     <meta content="<%= $app_title %>" itemprop="name">
     <meta content="" itemprop="description">
-    <meta content="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_630,w_1200,f_auto/v1/1084360/a_cckkf8.png" itemprop="image">
+    <meta content="<%= $app_logo_path %>" itemprop="image">
     <meta content="" name="description">
     <meta name="support-helper" content="{&quot;permalink&quot;:&quot;sambok&quot;,&quot;id&quot;:11348244}">
-    <meta name="asset-url" content="https://assets.strikingly.com">
+    <meta name="asset-url" content="<%= $app_url %>">
     
     <!--javascript importer first group-->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -47,16 +46,16 @@
     </script>
     
     <!--javascript importer second group-->
-    <script src="https://assets.strikingly.com/assets/detectIE-5e27e2329c35b47c0453a311ea5a6e82.js" async="async"></script>
-    <script type="text/javascript" charset="utf-8" async="" src="https://assets.strikingly.com/assets/v4/22.c20ec7eb4a9d7a8db814-site-bundle.js"></script>
-    <script type="text/javascript" charset="utf-8" async="" src="https://assets.strikingly.com/assets/v4/0.c20ec7eb4a9d7a8db814-site-bundle.js"></script>
-    <script type="text/javascript" charset="utf-8" async="" src="https://assets.strikingly.com/assets/v4/37.c20ec7eb4a9d7a8db814-site-bundle.js"></script>
-    <script type="text/javascript" charset="utf-8" async="" src="https://assets.strikingly.com/assets/v4/43.c20ec7eb4a9d7a8db814-site-bundle.js"></script>
+    <script src="/asset/header/js/detect.js" async="async"></script>
+    <script type="text/javascript" charset="utf-8" async="" src="/asset/header/js/bundle_1_1.js"></script>
+    <script type="text/javascript" charset="utf-8" async="" src="/asset/header/js/bundle_2_2.js"></script>
+    <script type="text/javascript" charset="utf-8" async="" src="/asset/header/js/bundle_3_1.js"></script>
+    <script type="text/javascript" charset="utf-8" async="" src="/asset/header/js/bundle_4_1.js"></script>
     
     <!--stylesheet importer group-->
-    <link rel="stylesheet" media="screen" href="https://assets.strikingly.com/assets/_reset-cb070d4c0832b4988613f9fd1d2463fa.css">
+    <link rel="stylesheet" media="screen" href="/asset/header/css/reset.css">
     <link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Raleway:300,700|Roboto:300,700,300italic,700italic|Roboto+Condensed:300,700&amp;subset=latin,latin-ext">
-    <link rel="stylesheet" media="screen" href="https://assets.strikingly.com/assets/themes/bright/main_v4-d8626678451df6a9da87333e0963388c.css">
+    <link rel="stylesheet" media="screen" href="/asset/header/css/main2.css">
     
     <!--style sheet setter-->
     <style type="text/css">.fancybox-margin{margin-right:17px;}</style>
@@ -65,11 +64,12 @@
     </noscript>
     
     <!--core image setter-->
-    <link href="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_64,w_64,f_auto/v1/1084360/asd_qspuzv.png" rel="shortcut icon" type="image/x-icon">
-    <link href="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_60,w_60,f_auto/v1/1084360/a_cckkf8.png" rel="apple-touch-icon" sizes="60x60">
-    <link href="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_76,w_76,f_auto/v1/1084360/a_cckkf8.png" rel="apple-touch-icon" sizes="76x76">
-    <link href="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_120,w_120,f_auto/v1/1084360/a_cckkf8.png" rel="apple-touch-icon" sizes="120x120">
-    <link href="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_152,w_152,f_auto/v1/1084360/a_cckkf8.png" rel="apple-touch-icon" sizes="152x152">
+    <%#= $app_logo_path %>
+    <link href="/asset/header/img/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="/asset/header/img/logo_60.png" rel="apple-touch-icon" sizes="60x60">
+    <link href="/asset/header/img/logo_76.png" rel="apple-touch-icon" sizes="76x76">
+    <link href="/asset/header/img/logo_120.png" rel="apple-touch-icon" sizes="120x120">
+    <link href="/asset/header/img/logo_152.png" rel="apple-touch-icon" sizes="152x152">
     
     <!--[if lte IE 9]>
     <link rel="stylesheet" media="screen" href="https://assets.strikingly.com/assets/themes/bright/main_v4_split2-8e25ac83d2cf201a805dfa9af872c097.css"/>

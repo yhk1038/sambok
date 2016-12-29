@@ -5,4 +5,6 @@ class ApplicationController < ActionController::Base
     
     $app_url    = "http://sambok161227-yhk1038.c9users.io"
     $app_title  = "SAMBOK PRODUCTION"
+    $app_description = "MAKING WHAT THE WORLD WANTS"
+    $app_logo_path = "/asset/header/img/logo.png"
 end
