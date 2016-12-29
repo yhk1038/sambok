@@ -169,12 +169,12 @@
                     <div class="nav-left" rid="14">
                         <span class="nav-items" rid="15">
                             <span class="nav-item">
-                                <a class="s-nav-item" onclick="fnMove('1')">
+                                <a class="s-nav-item" onclick="fnMove('1','web')">
                                     <span class="s-font-body">SAMBOK PRODUCTION</span>
                                 </a>
                             </span>
                             <span class="nav-item">
-                                <a class="s-nav-item" onclick="fnMove('2')">
+                                <a class="s-nav-item" onclick="fnMove('2','web')">
                                     <span class="s-font-body">About</span>
                                 </a>
                             </span>
@@ -183,17 +183,17 @@
                     <div class="nav-right" rid="16">
                         <span class="nav-items" rid="17">
                             <span class="nav-item">
-                                <a class="s-nav-item" onclick="fnMove('3')">
+                                <a class="s-nav-item" onclick="fnMove('3','web')">
                                     <span class="s-font-body">Our Work</span>
                                 </a>
                             </span>
                             <span class="nav-item">
-                                <a class="s-nav-item" onclick="fnMove('4')">
+                                <a class="s-nav-item" onclick="fnMove('4','web')">
                                     <span class="s-font-body">Working Process</span>
                                 </a>
                             </span>
                             <span class="nav-item">
-                                <a class="s-nav-item" onclick="fnMove('5')">
+                                <a class="s-nav-item" onclick="fnMove('5','web')">
                                     <span class="s-font-body">Contact</span>
                                 </a>
                             </span>
@@ -207,27 +207,27 @@
                         </style>
                         <span rid="19">
                             <span class="nav-item" rid="20">
-                                <a class="s-nav-item" onclick="fnMove('1')" rid="21">
+                                <a class="s-nav-item" onclick="fnMove('1','web')" rid="21">
                                     <span class="s-font-body" rid="22">SAMBOK PRODUCTION</span>
                                 </a>
                             </span>
                             <span class="nav-item" rid="23">
-                                <a class="s-nav-item" onclick="fnMove('2')" rid="24">
+                                <a class="s-nav-item" onclick="fnMove('2','web')" rid="24">
                                     <span class="s-font-body" rid="25">About</span>
                                 </a>
                             </span>
                             <span class="nav-item" rid="26">
-                                <a class="s-nav-item" onclick="fnMove('3')" rid="27">
+                                <a class="s-nav-item" onclick="fnMove('3','web')" rid="27">
                                     <span class="s-font-body" rid="28">Our Work</span>
                                 </a>
                             </span>
                             <span class="nav-item" rid="29">
-                                <a class="s-nav-item" onclick="fnMove('4')" rid="30">
+                                <a class="s-nav-item" onclick="fnMove('4','web')" rid="30">
                                     <span class="s-font-body" rid="31">Working Process</span>
                                 </a>
                             </span>
                             <span class="nav-item" rid="32">
-                                <a class="s-nav-item" onclick="fnMove('5')" rid="33">
+                                <a class="s-nav-item" onclick="fnMove('5','web')" rid="33">
                                     <span class="s-font-body" rid="34">Contact</span>
                                 </a>
                             </span>
@@ -254,7 +254,10 @@
                         }
                     });
                     
-                    function fnMove(seq){
+                    function fnMove(seq, device){
+                        if (device == "mb"){
+                            fnMobileNav('off');
+                        };
                         var offset = $(".s-section-" + seq).offset();
                         console.log(".s-section-"+seq+", offset : "+offset.top+". ");
                         $('html, body').animate({scrollTop : offset.top}, 800, "swing");
@@ -296,12 +299,12 @@
                     <div class="nav-left" rid="37">
                         <span class="nav-items" rid="38">
                             <span class="nav-item">
-                                <a class="s-nav-item" onclick="fnMove('1')">
+                                <a class="s-nav-item" onclick="fnMove('1','web')">
                                     <span class="s-font-body">SAMBOK PRODUCTION</span>
                                 </a>
                             </span>
                             <span class="nav-item">
-                                <a class="s-nav-item" onclick="fnMove('2')">
+                                <a class="s-nav-item" onclick="fnMove('2','web')">
                                     <span class="s-font-body">About</span>
                                 </a>
                             </span>
@@ -313,7 +316,7 @@
                                 <span rid="42">
                                     <div class="s-component-content" rid="43">
                                         <div rid="44">
-                                            <a onclick="fnMove('1')"><img src="//assets.strikingly.com/assets/themes/fresh/power.png" alt="" title="" data-description="" rid="46"></a>
+                                            <a onclick="fnMove('1','web')"><img src="//assets.strikingly.com/assets/themes/fresh/power.png" alt="" title="" data-description="" rid="46"></a>
                                         </div>
                                     </div>
                                 </span>
@@ -323,17 +326,17 @@
                     <div class="nav-right" rid="48">
                         <span class="nav-items" rid="49">
                             <span class="nav-item">
-                                <a class="s-nav-item" onclick="fnMove('3')">
+                                <a class="s-nav-item" onclick="fnMove('3','web')">
                                     <span class="s-font-body">Our Work</span>
                                 </a>
                             </span>
                             <span class="nav-item">
-                                <a class="s-nav-item" onclick="fnMove('4')">
+                                <a class="s-nav-item" onclick="fnMove('4','web')">
                                     <span class="s-font-body">Working Process</span>
                                 </a>
                             </span>
                             <span class="nav-item">
-                                <a class="s-nav-item" onclick="fnMove('5')">
+                                <a class="s-nav-item" onclick="fnMove('5','web')">
                                     <span class="s-font-body">Contact</span>
                                 </a>
                             </span>
@@ -369,19 +372,19 @@
                 <div class="navbar-drawer strikingly-drawer strikingly-nav-transition" id="61">
                     <ul id="nav-drawer-list" rid="62">
                         <span rid="63">
-                            <li rid="64"><a class="navbar-drawer-item s-font-body" href="#1" rid="65">SAMBOK PRODUCTION</a></li>
+                            <li rid="64"><a class="navbar-drawer-item s-font-body" onclick="fnMove('1','mb')" rid="65" style="cursor: pointer">SAMBOK PRODUCTION</a></li>
                         </span>
                         <span rid="66">
-                            <li rid="67"><a class="navbar-drawer-item s-font-body" href="#2" rid="68">About</a></li>
+                            <li rid="67"><a class="navbar-drawer-item s-font-body" onclick="fnMove('2','mb')" rid="68" style="cursor: pointer">About</a></li>
                         </span>
                         <span rid="69">
-                            <li rid="70"><a class="navbar-drawer-item s-font-body" href="#3" rid="71">Our Work</a></li>
+                            <li rid="70"><a class="navbar-drawer-item s-font-body" onclick="fnMove('3','mb')" rid="71" style="cursor: pointer">Our Work</a></li>
                         </span>
                         <span rid="72">
-                            <li rid="73"><a class="navbar-drawer-item s-font-body" href="#4" rid="74">Working Process</a></li>
+                            <li rid="73"><a class="navbar-drawer-item s-font-body" onclick="fnMove('4','mb')" rid="74" style="cursor: pointer">Working Process</a></li>
                         </span>
                         <span rid="75">
-                            <li rid="76"><a class="navbar-drawer-item s-font-body selected" href="#5" rid="77">Contact</a></li>
+                            <li rid="76"><a class="navbar-drawer-item s-font-body" onclick="fnMove('5','mb')" rid="77" style="cursor: pointer">Contact</a></li>
                         </span>
                     </ul>
                 </div>
