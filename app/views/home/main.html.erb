@@ -263,12 +263,36 @@
                     
                 </script>
                 <style>
+                    /*navbar-white controller*/
                     .white_off{
                         display:none !important;
                     }
+                    #header-container-fixed{
+                        width: 100% !important;
+                    }
+                    @media screen and (min-width: 810px) {
+                        #header-container-fixed span.s-font-body{
+                            font-size: 16px !important;
+                        }
+                    }
+                    @media screen and (max-width: 809px) {
+                        #header-container-fixed span.s-font-body{
+                            font-size: 14px !important;
+                        }
+                    }
+                    @media screen and (max-width: 732px) {
+                        #header-container-fixed span.s-font-body{
+                            font-size: 13px !important;
+                        }
+                    }
+                    @media screen and (max-width: 727px) {
+                        #header-container-fixed{
+                            display: none !important;
+                        }
+                    }
                 </style>
                 <!-- onScroll event >> navbar-white -->
-                <div id="header-container-fixed" class="navigator strikingly-fixed squeeze animated white_off" rid="36" style="width: 1519px; transition:none;">
+                <div id="header-container-fixed" class="navigator strikingly-fixed squeeze animated white_off" rid="36" style="transition:none;">
                     <div class="nav-left" rid="37">
                         <span class="nav-items" rid="38">
                             <span class="nav-item">
@@ -318,9 +342,23 @@
                 </div>
             </div>
             <div class="s-navbar-container" rid="50">
+                <script>
+                    function fnMobileNav(seq){
+                        if (seq == 'on') {
+                            //$("#navbar-drawer-mask").show();
+                            $("#53").attr("onclick",'').attr("onclick","fnMobileNav('off')");
+                            $("#61").show().css("height", "1000px").css("transform", "none");
+                        } else if (seq == 'off') {
+                            $("#53").attr("onclick",'').attr("onclick","fnMobileNav('on')");
+                            $("#61").css("transform", "");
+                        } else {
+                            alert("잘못된 요청입니다.")
+                        }
+                    }
+                </script>
                 <div class="navbar-drawer-bar strikingly-nav-transition" rid="51">
                     <div class="drawer-container" rid="52">
-                        <a class="navbar" href="javascript:void(0);" rid="53">
+                        <a class="navbar" onclick="fnMobileNav('on');" id="53">
                             <div class="navbar-icons" rid="54"><span rid="55"></span><span rid="56"></span><span rid="57"></span></div>
                         </a>
                         <div id="s-mobile-shopping-cart-new" rid="58"></div>
@@ -328,7 +366,7 @@
                     </div>
                 </div>
                 <div id="navbar-drawer-mask" rid="60" style="display: none;"></div>
-                <div class="navbar-drawer strikingly-drawer strikingly-nav-transition" rid="61">
+                <div class="navbar-drawer strikingly-drawer strikingly-nav-transition" id="61">
                     <ul id="nav-drawer-list" rid="62">
                         <span rid="63">
                             <li rid="64"><a class="navbar-drawer-item s-font-body" href="#1" rid="65">SAMBOK PRODUCTION</a></li>
