@@ -1,0 +1,1 @@
+json.partial! "samboks/sambok", sambok: @sambok

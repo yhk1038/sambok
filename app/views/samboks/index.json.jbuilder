@@ -1,0 +1,1 @@
+json.array! @samboks, partial: 'samboks/sambok', as: :sambok

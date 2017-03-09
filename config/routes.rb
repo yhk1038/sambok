@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sections
+  resources :samboks
   root "home#main"
   
   get 'home/index'

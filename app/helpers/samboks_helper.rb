@@ -1,0 +1,2 @@
+module SamboksHelper
+end

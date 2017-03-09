@@ -1,0 +1,49 @@
+<%= form_for(@section) do |f| %>
+  <% if @section.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@section.errors.count, "error") %> prohibited this section from being saved:</h2>
+
+      <ul>
+      <% @section.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :subtitle %><br>
+    <%= f.text_field :subtitle %>
+  </div>
+  <div class="field">
+    <%= f.label :subtitle_size %><br>
+    <%= f.number_field :subtitle_size %>
+  </div>
+  <div class="field">
+    <%= f.label :subtitle2 %><br>
+    <%= f.text_field :subtitle2 %>
+  </div>
+  <div class="field">
+    <%= f.label :subtitle2_size %><br>
+    <%= f.number_field :subtitle2_size %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content, style: 'width: 100%' %>
+  </div>
+  <div class="field">
+    <%= f.label :img_path %><br>
+    <%= f.text_field :img_path %>
+  </div>
+  <div class="field">
+    <%= f.label :bg_img_path %><br>
+    <%= f.text_field :bg_img_path %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

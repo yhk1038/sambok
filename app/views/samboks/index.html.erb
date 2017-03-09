@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Samboks Main Information</h1> <%= link_to '홈으로 돌아가기', root_path, class: 'btn btn-primary', style: 'color: #fff' %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Slogan</th>
+      <th>Img path</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @samboks.each do |sambok| %>
+      <tr>
+        <td><%= sambok.name %></td>
+        <td><%= sambok.slogan %></td>
+        <td><%= sambok.img_path %></td>
+        <td><%= link_to '수정하기', edit_sambok_path(sambok), class: 'btn btn-warning btn-sm', style: 'color: #ffffff' %></td>
+        <!--<td><%#= link_to 'Show', sambok %></td>-->
+        <!--<td><%#= link_to 'Destroy', sambok, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sections</h1>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Subtitle</th>
+        <th>Subtitle size</th>
+        <th>Subtitle2</th>
+        <th>Subtitle2 size</th>
+        <th>Content</th>
+        <th>Img path</th>
+        <th>Bg img path</th>
+        <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @sections.each do |section| %>
+        <tr>
+            <td><%= section.name %></td>
+            <td><%= section.subtitle %></td>
+            <td><%= section.subtitle_size %></td>
+            <td><%= section.subtitle2 %></td>
+            <td><%= section.subtitle2_size %></td>
+            <td><%= section.content.truncate(20) %></td>
+            <td><%= section.img_path %></td>
+            <td><%= section.bg_img_path %></td>
+            <td><%= link_to '수정하기', edit_section_path(section), class: 'btn btn-warning btn-sm', style: 'color: #ffffff' %></td>
+            <!--<td><%#= link_to 'Show', section %></td>-->
+            <!--<td><%#= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New Sambok', new_sambok_path %>

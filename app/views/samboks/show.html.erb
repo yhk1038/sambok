@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sambok.name %>
+</p>
+
+<p>
+  <strong>Slogan:</strong>
+  <%= @sambok.slogan %>
+</p>
+
+<p>
+  <strong>Img path:</strong>
+  <%= @sambok.img_path %>
+</p>
+
+<%= link_to 'Edit', edit_sambok_path(@sambok) %> |
+<%= link_to 'Back', samboks_path %>

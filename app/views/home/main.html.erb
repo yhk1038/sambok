@@ -3,11 +3,11 @@
         <!-- react-empty: 2 -->
         <div id="s-content" class="s-variation-default s-custom-colors s-font-heading-raleway s-font-title-raleway s-font-body-raleway" rid="3">
             <div class="social-thumbnail" rid="4">
-                <div style="display:none;" rid="5"><img src="<%= @img_url %>" alt="page thumbnail" width="300" height="300" rid="6"></div>
+                <div style="display:none;" rid="5"><img src="<%= @sambok.img_path %>" alt="page thumbnail" width="300" height="300" rid="6"></div>
                 <div id="lw-share-data" style="display:none;" rid="7">
-                    <div class="lws-title" rid="8"><%= $app_title %></div>
+                    <div class="lws-title" rid="8"><%= @sambok.name %></div>
                     <div class="lws-description" rid="9">Website</div>
-                    <div class="lws-image" rid="10"><%= @img_url %></div>
+                    <div class="lws-image" rid="10"><%= @sambok.img_path %></div>
                 </div>
             </div>
 	    <%= render partial: 'custom_css', layout: false %>
@@ -165,18 +165,25 @@
                 	color: #fa8c97;
                 }
             </style>
+            <style>
+                span.s-font-body,
+                p.section-title,
+                p.section-subtitle {
+                    text-transform: capitalize !important;
+                }
+            </style>
             <div class="s-navbar-section" rid="12">
                 <div id="header-container" class="navigator no-logo s-bg-light-text squeeze" rid="13">
                     <div class="nav-left" rid="14">
                         <span class="nav-items" rid="15">
                             <span class="nav-item">
                                 <a class="s-nav-item" onclick="fnMove('1','web')">
-                                    <span class="s-font-body">SAMBOK PRODUCTION</span>
+                                    <span class="s-font-body"><%= @sambok.name %></span>
                                 </a>
                             </span>
                             <span class="nav-item">
                                 <a class="s-nav-item" onclick="fnMove('2','web')">
-                                    <span class="s-font-body">About</span>
+                                    <span class="s-font-body" style="text-transform: capitalize">about</span>
                                 </a>
                             </span>
                         </span>
@@ -209,12 +216,12 @@
                         <span rid="19">
                             <span class="nav-item" rid="20">
                                 <a class="s-nav-item" onclick="fnMove('1','web')" rid="21">
-                                    <span class="s-font-body" rid="22">SAMBOK PRODUCTION</span>
+                                    <span class="s-font-body" rid="22"><%= @sambok.name %></span>
                                 </a>
                             </span>
                             <span class="nav-item" rid="23">
                                 <a class="s-nav-item" onclick="fnMove('2','web')" rid="24">
-                                    <span class="s-font-body" rid="25">About</span>
+                                    <span class="s-font-body" rid="25">about</span>
                                 </a>
                             </span>
                             <span class="nav-item" rid="26">
@@ -352,7 +359,7 @@
                         <span class="nav-items" rid="38">
                             <span class="nav-item">
                                 <a class="s-nav-item" onclick="fnMove('1','web')">
-                                    <span class="s-font-body">SAMBOK PRODUCTION</span>
+                                    <span class="s-font-body"><%= @sambok.name %></span>
                                 </a>
                             </span>
                             <span class="nav-item">
@@ -424,20 +431,25 @@
                 <div class="navbar-drawer strikingly-drawer strikingly-nav-transition" id="61">
                     <ul id="nav-drawer-list" rid="62">
                         <span rid="63">
-                            <li rid="64"><a class="navbar-drawer-item s-font-body" onclick="fnMove('1','mb')" rid="65" style="cursor: pointer">SAMBOK PRODUCTION</a></li>
+                            <li rid="64"><a class="navbar-drawer-item s-font-body" onclick="fnMove('1','mb')" rid="65" style="cursor: pointer"><%= @sambok.name %></a></li>
                         </span>
-                        <span rid="66">
-                            <li rid="67"><a class="navbar-drawer-item s-font-body" onclick="fnMove('2','mb')" rid="68" style="cursor: pointer">About</a></li>
-                        </span>
-                        <span rid="69">
-                            <li rid="70"><a class="navbar-drawer-item s-font-body" onclick="fnMove('3','mb')" rid="71" style="cursor: pointer">Our Work</a></li>
-                        </span>
-                        <span rid="72">
-                            <li rid="73"><a class="navbar-drawer-item s-font-body" onclick="fnMove('4','mb')" rid="74" style="cursor: pointer">Working Process</a></li>
-                        </span>
-                        <span rid="75">
-                            <li rid="76"><a class="navbar-drawer-item s-font-body" onclick="fnMove('5','mb')" rid="77" style="cursor: pointer">Contact</a></li>
-                        </span>
+
+                        <% i = 0 %>
+                        <% @sections.each do |section| %>
+                            <span rid="<%= 66 + (3*i) %>">
+                                <li rid="<%= 67 + (3*i) %>"><a class="navbar-drawer-item s-font-body" onclick="fnMove('<%= 2 + i %>','mb')" rid="<%= 68 + (3*i) %>" style="cursor: pointer"><%= section.name %></a></li>
+                            </span>
+                        <% end %>
+
+                        <!--<span rid="69">-->
+                            <!--<li rid="70"><a class="navbar-drawer-item s-font-body" onclick="fnMove('3','mb')" rid="71" style="cursor: pointer">Our Work</a></li>-->
+                        <!--</span>-->
+                        <!--<span rid="72">-->
+                            <!--<li rid="73"><a class="navbar-drawer-item s-font-body" onclick="fnMove('4','mb')" rid="74" style="cursor: pointer">Working Process</a></li>-->
+                        <!--</span>-->
+                        <!--<span rid="75">-->
+                            <!--<li rid="76"><a class="navbar-drawer-item s-font-body" onclick="fnMove('5','mb')" rid="77" style="cursor: pointer">Contact</a></li>-->
+                        <!--</span>-->
                     </ul>
                 </div>
                 <div class="mobile-actions strikingly-nav-transition" rid="82" style="height: 172px;">
@@ -454,7 +466,7 @@
                         <div rid="90">
                             <!-- react-text: 91 -->
                             <!-- /react-text -->
-                            <div class="s-bg-image s-bg-light-text s-new-title-section s-section s-section-full  transition bottom-bump" style="background-repeat: repeat; background-size: auto; background-color: transparent; background-position: 50% 50%; background-image: url('<%= @bg_pink_img %>'); padding-top: 109px; padding-bottom: 80px;" rid="92">
+                            <div class="s-bg-image s-bg-light-text s-new-title-section s-section s-section-full  transition bottom-bump" style="background-repeat: repeat; background-size: auto; background-color: <%= @sections[3].bg_img_path %>; background-position: 50% 50%; padding-top: 109px; padding-bottom: 80px;" rid="92">
                                 <!-- react-text: 93 -->
                                 <!-- /react-text -->
                                 <div class="container" rid="94">
@@ -466,7 +478,7 @@
                                                     <div class="s-component-content" rid="100">
                                                         <div rid="101">
                                                             <!-- react-text: 102 -->
-                                                            <!-- /react-text --><img src="<%= @img_url %>" alt="" title="" data-description="" rid="103"><!-- react-text: 104 -->
+                                                            <!-- /react-text --><img src="<%= @sambok.img_path %>" alt="" title="" data-description="" rid="103"><!-- react-text: 104 -->
                                                             <!-- /react-text -->
                                                         </div>
                                                     </div>
@@ -477,14 +489,14 @@
                                             <div class="s-subtitle" rid="106">
                                                 <div class="s-component s-text" rid="107">
                                                     <h4 class="s-component-content s-font-heading" rid="108">
-                                                        <p style="white-space: pre;">M A K I N G &nbsp;W H A T &nbsp;T H E &nbsp;W O R L D &nbsp;W A N T S</p>
+                                                        <p style="white-space: pre;"><%= @sambok.slogan.gsub('_',' ') %></p>
                                                     </h4>
                                                 </div>
                                             </div>
                                             <div class="s-title sb-title-center-align" rid="109">
                                                 <div class="s-component s-text" rid="110">
                                                     <h1 class="s-component-content s-font-title" rid="111">
-                                                        <p class="main-title" style="text-align:center; font-weight: bolder;">SAMBOK PRODUCTION</p>
+                                                        <p class="main-title" style="text-align:center; font-weight: bolder;"><%= @sambok.name %></p>
                                                     </h1>
                                                 </div>
                                             </div>
@@ -503,6 +515,8 @@
                         </div>
                     </div>
                 </li>
+
+                <% about = @sections[0] %>
                 <li class="slide s-section-2" id="about" rid="114">
                     <div class="waypoint" rid="115"></div>
                     <a class="section-anchor" rid="116" style="top: -53px;"></a>
@@ -510,7 +524,7 @@
                         <div rid="118">
                             <!-- react-text: 119 -->
                             <!-- /react-text -->
-                            <div class="s-no-bg s-bg-gray s-new-text-section s-section s-text-section transition lazyloaded s-bg-light-text-override" rid="120">
+                            <div class="s-no-bg s-bg-gray s-new-text-section s-section s-text-section transition lazyloaded s-bg-light-text-override" rid="120" style="background-color: <%= about.bg_img_path %>;">
                                 <div class="container" rid="121">
                                     <div class="clearfix" rid="122">
                                         <div class="columns sixteen" rid="123">
@@ -518,7 +532,7 @@
                                                 <div class="s-title " rid="125">
                                                     <div class="s-component s-text" rid="126">
                                                         <h2 class="s-component-content s-font-title" rid="127">
-                                                            <p class="section-title">About</p>
+                                                            <p class="section-title"><%= about&.name %></p>
                                                         </h2>
                                                     </div>
                                                 </div>
@@ -536,11 +550,7 @@
                                                             <div class="s-item-title" rid="135">
                                                                 <div class="s-component s-text" rid="136">
                                                                     <h3 class="s-component-content s-font-heading" rid="137">
-                                                                        <p class="section-subtitle" style="text-align: center;">청년영상제작크루 삼복프로덕션은 모바일에 특화된 영상콘텐츠를 만드는</p>
-                                                                        <p class="section-subtitle" style="text-align: center;">20대 영상인들의 모임입니다.</p>
-                                                                        <p class="section-subtitle" style="text-align: center;">&nbsp;</p>
-                                                                        <p class="section-subtitle" style="text-align: center;">복날이면 모두가 맛있고 영양가 있는 보양식을 찾듯이</p>
-                                                                        <p class="section-subtitle" style="text-align: center;">모바일 영상이 필요한 곳에 보양식같은 영상을 만드는 것이 우리의 목표입니다.</p>
+                                                                        <%== about.devide %>
                                                                     </h3>
                                                                 </div>
                                                             </div>
@@ -563,6 +573,8 @@
                         </div>
                     </div>
                 </li>
+
+                <% ourWork = @sections[1] %>
                 <li class="slide s-section-3" id="our-work" rid="143">
                     <div class="waypoint" rid="144"></div>
                     <a class="section-anchor" rid="145" style="top: -53px;"></a>
@@ -570,14 +582,14 @@
                         <div rid="147">
                             <!-- react-text: 148 -->
                             <!-- /react-text -->
-                            <div class="s-bg-white s-new-media-section s-section s-media-section transition" rid="149">
+                            <div class="s-bg-white s-new-media-section s-section s-media-section transition" rid="149" style="background-color: <%= ourWork.bg_img_path %>">
                                 <div class="container" rid="150">
                                     <div class="columns sixteen" rid="151">
                                         <div class="s-title-group  " rid="152">
                                             <div class="s-title " rid="153">
                                                 <div class="s-component s-text" rid="154">
                                                     <h2 class="s-component-content s-font-title" rid="155">
-                                                        <p class="section-title">Our Work</p>
+                                                        <p class="section-title"><%= ourWork.name %></p>
                                                     </h2>
                                                 </div>
                                             </div>
@@ -600,7 +612,7 @@
                                                                                 <!-- /react-text -->
                                                                                 <div class="s-ratio-box" style="max-width:1092px;max-height:725px;" rid="169">
                                                                                     <div class="s-ratio-fill" style="padding-bottom:66.39%;" rid="170"></div>
-                                                                                    <div rid="171"><img alt="" title="" data-description="" width="1092" height="725" src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?h=9000&amp;w=1200&amp;q=90&amp;fit=clip&amp;fm=jpg" class="lazyautosizes lazyloaded " data-src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?h=9000&amp;w=1200&amp;q=90&amp;fit=clip&amp;fm=jpg" data-sizes="auto" rid="172" sizes="978px"></div>
+                                                                                    <div rid="171"><img alt="" title="" data-description="" width="1092" height="725" src="<%= ourWork.img_path %>" class="lazyautosizes lazyloaded " data-src="<%= ourWork.img_path %>" data-sizes="auto" rid="172" sizes="978px"></div>
                                                                                 </div>
                                                                                 <!-- react-text: 173 -->
                                                                                 <!-- /react-text -->
@@ -615,7 +627,7 @@
                                                                 <div class="s-item-title" rid="176">
                                                                     <div class="s-component s-text" rid="177">
                                                                         <h3 class="s-component-content s-font-heading" rid="178">
-                                                                            <p class="section-subtitle">Mobile Video</p>
+                                                                            <p class="section-subtitle"><%= ourWork.subtitle2 %></p>
                                                                         </h3>
                                                                     </div>
                                                                 </div>
@@ -629,9 +641,10 @@
                                                                 <div class="s-item-text" rid="182">
                                                                     <div class="s-component s-text" rid="183">
                                                                         <div class="s-component-content s-font-body" rid="184">
-                                                                            <p class="section-content">SNS를 중심으로 하는 모바일 영상 콘텐츠 시장에 발맞춰</p>
-                                                                            <p class="section-content">삼복프로덕션은 스토리라인을 중심으로 하는 웹드라마, 웹무비를 제작합니다.</p>
-                                                                            <p class="section-content">이를 통해, 우리는 세상이 원하는 이야기를 함께 만들어 나가고자 합니다.</p>
+                                                                            <%== ourWork.devide(spliter: true)[0..2].join %>
+                                                                            <!--<p class="section-content">SNS를 중심으로 하는 모바일 영상 콘텐츠 시장에 발맞춰</p>-->
+                                                                            <!--<p class="section-content">삼복프로덕션은 스토리라인을 중심으로 하는 웹드라마, 웹무비를 제작합니다.</p>-->
+                                                                            <!--<p class="section-content">이를 통해, 우리는 세상이 원하는 이야기를 함께 만들어 나가고자 합니다.</p>-->
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -652,8 +665,7 @@
                                                                 <div class="s-item-text" rid="193">
                                                                     <div class="s-component s-text" rid="194">
                                                                         <div class="s-component-content s-font-body" rid="195">
-                                                                            <p class="section-content">또한, 바이럴 마케팅 영상이나 현장스케치 영상 등</p>
-                                                                            <p class="section-content">다양한 사람들을 만나고, 소통할 수 있는 곳으로 삼복은 찾아갑니다.</p>
+                                                                            <%== ourWork.devide(spliter: true)[3..-1].join %>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -674,6 +686,8 @@
                         </div>
                     </div>
                 </li>
+
+                <% wp = @sections[2] %>
                 <li class="slide s-section-4" id="working-process" rid="199">
                     <div class="waypoint" rid="200"></div>
                     <a class="section-anchor" rid="201" style="top: -53px;"></a>
@@ -681,21 +695,21 @@
                         <div rid="203">
                             <!-- react-text: 204 -->
                             <!-- /react-text -->
-                            <div class="s-bg-dark s-new-media-section s-section s-media-section transition s-bg-light-text-override" rid="205">
+                            <div class="s-bg-dark s-new-media-section s-section s-media-section transition s-bg-light-text-override" rid="205" style="background-color: <%= wp.bg_img_path %>">
                                 <div class="container" rid="206">
                                     <div class="columns sixteen" rid="207">
                                         <div class="s-title-group  " rid="208">
                                             <div class="s-title " rid="209">
                                                 <div class="s-component s-text" rid="210">
                                                     <h2 class="s-component-content s-font-title" rid="211">
-                                                        <p class="section-title">Working Process</p>
+                                                        <p class="section-title"><%= wp.name %></p>
                                                     </h2>
                                                 </div>
                                             </div>
                                             <div class="s-subtitle" rid="212">
                                                 <div class="s-component s-text" rid="213">
                                                     <h4 class="s-component-content s-font-heading" rid="214">
-                                                        <p class="section-content">Just suitable for your project</p>
+                                                        <p class="section-content"><%= wp.subtitle %></p>
                                                     </h4>
                                                 </div>
                                             </div>
@@ -718,7 +732,7 @@
                                                                                 <!-- /react-text -->
                                                                                 <div class="s-ratio-box" style="max-width:1116px;max-height:255px;" rid="228">
                                                                                     <div class="s-ratio-fill" style="padding-bottom:22.85%;" rid="229"></div>
-                                                                                    <div rid="230"><img alt="" title="" data-description="" width="1116" height="255" src="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_9000,w_1200,f_auto/v1/1084360/22_ro6ur6.png" class="lazyautosizes lazyloaded " data-src="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_9000,w_1200,f_auto/v1/1084360/22_ro6ur6.png" data-sizes="auto" rid="231" sizes="978px"></div>
+                                                                                    <div rid="230"><img alt="" title="" data-description="" width="1116" height="255" src="<%= wp.img_path %>" class="lazyautosizes lazyloaded " data-src="<%= wp.img_path %>" data-sizes="auto" rid="231" sizes="978px"></div>
                                                                                 </div>
                                                                                 <!-- react-text: 232 -->
                                                                                 <!-- /react-text -->
@@ -733,7 +747,7 @@
                                                                 <div class="s-item-title" rid="235">
                                                                     <div class="s-component s-text" rid="236">
                                                                         <h3 class="s-component-content s-font-heading" rid="237">
-                                                                            <p class="section-subtitle">기획부터 수정까지</p>
+                                                                            <p class="section-subtitle"><%= wp.subtitle2 %></p>
                                                                         </h3>
                                                                     </div>
                                                                 </div>
@@ -743,9 +757,7 @@
                                                                 <div class="s-item-text" rid="240">
                                                                     <div class="s-component s-text" rid="241">
                                                                         <div class="s-component-content s-font-body" rid="242">
-                                                                            <p class="section-content">우리의 제작과정은 처음부터 끝까지 제작하려는 콘텐츠 위주로 구성됩니다.</p>
-                                                                            <p class="section-content">기본 프로세스를 토대로 스토리라인에 따라 개별 프로세스를 세부 설정한 뒤에</p>
-                                                                            <p class="section-content">기획을 시작하며, 컨펌 이후에도 2회에 걸쳐 추가 수정을 진행합니다.</p>
+                                                                            <%== wp.devide(section: 'content') %>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -766,25 +778,27 @@
                         </div>
                     </div>
                 </li>
+
+                <% ct = @sections[3] %>
                 <li class="slide s-section-5" id="contact" rid="246">
                     <div class="waypoint" rid="247"></div>
                     <a class="section-anchor" rid="248" style="top: -53px;"></a>
-                    <div class="s-bg-image s-bg-light-text s-contact-section s-section transition lazyloaded" style="background-repeat: repeat; background-size: auto; background-color: transparent; background-position: 50% 50%; background-image: url('<%= @bg_pink_img %>');" data-bg="<%= @bg_pink_img %>" rid="249">
+                    <div class="s-bg-image s-bg-light-text s-contact-section s-section transition lazyloaded" style="background-repeat: repeat; background-size: auto; background-color: <%= ct.bg_img_path %>; background-position: 50% 50%;" rid="249">
                         <div class="container" rid="250">
                             <div class="columns twelve offset-two" rid="251">
                                 <div class="s-title-group  " rid="252">
                                     <div class="s-title " rid="253">
                                         <div class="s-component s-text" rid="254">
                                             <h2 class="s-component-content s-font-title" rid="255">
-                                                <p class="section-title">Contact</p>
+                                                <p class="section-title"><%= ct.name %></p>
                                             </h2>
                                         </div>
                                     </div>
                                     <div class="s-subtitle" rid="256">
                                         <div class="s-component s-text" rid="257">
                                             <h4 class="s-component-content s-font-heading" rid="258">
-                                                <p class="section-subtitle">sambokproduction@naver.com</p>
-						<p class="section-content">서울시 중구 퇴계로36길 2, 131호(충무로영상센터)</p>
+                                                <p class="section-subtitle" style="text-transform: none !important;"><%= ct.subtitle %></p>
+						                        <%== ct.devide(section: 'content') %>
                                             </h4>
                                         </div>
                                     </div>
@@ -902,7 +916,7 @@
                         <div class="s-footer-text" rid="299">
                             <div class="s-component s-text" rid="300">
                                 <div class="s-component-content s-font-body" rid="301">
-                                    <p>Copyright © 2016 - 2017 SAMBOK PRODUCTION. All rights reserved.</p>
+                                    <p>Copyright © 2016 - <%= DateTime.now.year %> <%= @sambok.name %>. All right<a href="/samboks" style="color: #000; border: none;">s</a> reserve<a href="/sections" style="color: #000; border: none;">d.</a> </p>
                                 </div>
                             </div>
                         </div>
