@@ -3,13 +3,14 @@
         <!-- react-empty: 2 -->
         <div id="s-content" class="s-variation-default s-custom-colors s-font-heading-raleway s-font-title-raleway s-font-body-raleway" rid="3">
             <div class="social-thumbnail" rid="4">
-                <div style="display:none;" rid="5"><img src="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_630,w_1200,f_auto/v1/1084360/a_cckkf8.png" alt="page thumbnail" width="300" height="300" rid="6"></div>
+                <div style="display:none;" rid="5"><img src="<%= @img_url %>" alt="page thumbnail" width="300" height="300" rid="6"></div>
                 <div id="lw-share-data" style="display:none;" rid="7">
                     <div class="lws-title" rid="8"><%= $app_title %></div>
                     <div class="lws-description" rid="9">Website</div>
-                    <div class="lws-image" rid="10">http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_630,w_1200,f_auto/v1/1084360/a_cckkf8.png</div>
+                    <div class="lws-image" rid="10"><%= @img_url %></div>
                 </div>
             </div>
+	    <%= render partial: 'custom_css', layout: false %>
             <style id="theme-style-tag" rid="11">
                 .s-custom-colors .s-subtitle {
                 	color: #ef8690;
@@ -273,25 +274,76 @@
                     #header-container-fixed{
                         width: 100% !important;
                     }
-                    @media screen and (min-width: 810px) {
+
+		    @media screen and (min-width: 965px) {
+			#header-container .nav-item a,
+			#header-container-fixed .nav-item a{
+			    font-size: 23px;
+			}
+			#header-container-fixed span.s-font-body{
+			    font-size: 20px !important;
+			}
+
+			.main-title {font-size: <%= @main_title_size %>px !important}
+			.section-title {font-size: <%= @section_title_size %>px !important; font-weight: bolder;}
+			.section-subtitle {font-size: <%= @section_subtitle_size %>px !important}
+			.section-content {font-size: <%= @section_content_size %>px !important}
+		    }
+
+                    @media screen and (max-width: 964px) {
+			#header-container .nav-item a,
+			#header-container-fixed .nav-item a{
+			    font-size: 21px;
+			}
+                        #header-container-fixed span.s-font-body{
+                            font-size: 18px !important;
+                        }
+
+			.main-title {font-size: <%= @main_title_size %>px !important}
+			.section-title {font-size: <%= @section_title_size %>px !important; font-weight: bolder    ;}
+			.section-subtitle {font-size: <%= @section_subtitle_size %>px !important}
+			.section-content {font-size: <%= @section_content_size %>px !important}
+                    }
+
+                    @media screen and (max-width: 885px) {
+			#header-container .nav-item a,
+			#header-container-fixed .nav-item a{
+			    font-size: 19px;
+			}
                         #header-container-fixed span.s-font-body{
                             font-size: 16px !important;
                         }
+
+			.main-title {font-size: <%= @main_title_size %>px !important}
+			.section-title {font-size: <%= @section_title_size %>px !important; font-weight: bolder    ;}
+			.section-subtitle {font-size: <%= @section_subtitle_size %>px !important}
+			.section-content {font-size: <%= @section_content_size %>px !important}
                     }
-                    @media screen and (max-width: 809px) {
+
+                    @media screen and (max-width: 807px) {
+			#header-container .nav-item a,
+			#header-container-fixed .nav-item a{
+			    font-size: 16.5px;
+			}
                         #header-container-fixed span.s-font-body{
-                            font-size: 14px !important;
+                            font-size: 13.5px !important;
                         }
+
+			.main-title {font-size: <%= @main_title_size %>px !important}
+			.section-title {font-size: <%= @section_title_size %>px !important; font-weight: bolder    ;}
+			.section-subtitle {font-size: <%= @section_subtitle_size %>px !important}
+			.section-content {font-size: <%= @section_content_size %>px !important}
                     }
-                    @media screen and (max-width: 732px) {
-                        #header-container-fixed span.s-font-body{
-                            font-size: 13px !important;
-                        }
-                    }
+
                     @media screen and (max-width: 727px) {
                         #header-container-fixed{
                             display: none !important;
                         }
+
+			.main-title {font-size: <%= @main_title_size %>px !important}
+			.section-title {font-size: <%= @section_title_size %>px !important; font-weight: bolder    ;}
+			.section-subtitle {font-size: <%= @section_subtitle_size %>px !important}
+			.section-content {font-size: <%= @section_content_size %>px !important}
                     }
                 </style>
                 <!-- onScroll event >> navbar-white -->
@@ -402,7 +454,7 @@
                         <div rid="90">
                             <!-- react-text: 91 -->
                             <!-- /react-text -->
-                            <div class="s-bg-image s-bg-light-text s-new-title-section s-section s-section-full  transition bottom-bump" style="background-repeat: repeat; background-size: auto; background-color: transparent; background-position: 50% 50%; background-image: url(&quot;https://uploads.strikinglycdn.com/static/backgrounds/pastel-solids/39.jpg&quot;); padding-top: 109px; padding-bottom: 80px;" rid="92">
+                            <div class="s-bg-image s-bg-light-text s-new-title-section s-section s-section-full  transition bottom-bump" style="background-repeat: repeat; background-size: auto; background-color: transparent; background-position: 50% 50%; background-image: url('<%= @bg_pink_img %>'); padding-top: 109px; padding-bottom: 80px;" rid="92">
                                 <!-- react-text: 93 -->
                                 <!-- /react-text -->
                                 <div class="container" rid="94">
@@ -414,7 +466,7 @@
                                                     <div class="s-component-content" rid="100">
                                                         <div rid="101">
                                                             <!-- react-text: 102 -->
-                                                            <!-- /react-text --><img src="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_9000,w_1200,f_auto,q_90/v1/1084360/%EA%B7%B8%EB%A6%BC1_ifrddq.png" alt="" title="" data-description="" rid="103"><!-- react-text: 104 -->
+                                                            <!-- /react-text --><img src="<%= @img_url %>" alt="" title="" data-description="" rid="103"><!-- react-text: 104 -->
                                                             <!-- /react-text -->
                                                         </div>
                                                     </div>
@@ -425,14 +477,14 @@
                                             <div class="s-subtitle" rid="106">
                                                 <div class="s-component s-text" rid="107">
                                                     <h4 class="s-component-content s-font-heading" rid="108">
-                                                        <p>MAKING WHAT THE WORLD WANTS</p>
+                                                        <p style="white-space: pre;">M A K I N G &nbsp;W H A T &nbsp;T H E &nbsp;W O R L D &nbsp;W A N T S</p>
                                                     </h4>
                                                 </div>
                                             </div>
                                             <div class="s-title sb-title-center-align" rid="109">
                                                 <div class="s-component s-text" rid="110">
                                                     <h1 class="s-component-content s-font-title" rid="111">
-                                                        <p style="text-align:center">SAMBOK PRODUCTION</p>
+                                                        <p class="main-title" style="text-align:center; font-weight: bolder;">SAMBOK PRODUCTION</p>
                                                     </h1>
                                                 </div>
                                             </div>
@@ -466,7 +518,7 @@
                                                 <div class="s-title " rid="125">
                                                     <div class="s-component s-text" rid="126">
                                                         <h2 class="s-component-content s-font-title" rid="127">
-                                                            <p>About</p>
+                                                            <p class="section-title">About</p>
                                                         </h2>
                                                     </div>
                                                 </div>
@@ -484,11 +536,11 @@
                                                             <div class="s-item-title" rid="135">
                                                                 <div class="s-component s-text" rid="136">
                                                                     <h3 class="s-component-content s-font-heading" rid="137">
-                                                                        <p style="text-align: center;">청년영상제작크루 삼복프로덕션은 웹드라마, 웹무비 등 </p>
-                                                                        <p style="text-align: center;">모바일 중심 영상 콘텐츠를 만듭니다.</p>
-                                                                        <p style="text-align: center;">&nbsp;</p>
-                                                                        <p style="text-align: center;">삼복의 보양식같이 건강한 영상을 만드는 것,</p>
-                                                                        <p style="text-align: center;">삼복이 바라보는 지향점입니다.</p>
+                                                                        <p class="section-subtitle" style="text-align: center;">청년영상제작크루 삼복프로덕션은 모바일에 특화된 영상콘텐츠를 만드는</p>
+                                                                        <p class="section-subtitle" style="text-align: center;">20대 영상인들의 모임입니다.</p>
+                                                                        <p class="section-subtitle" style="text-align: center;">&nbsp;</p>
+                                                                        <p class="section-subtitle" style="text-align: center;">복날이면 모두가 맛있고 영양가 있는 보양식을 찾듯이</p>
+                                                                        <p class="section-subtitle" style="text-align: center;">모바일 영상이 필요한 곳에 보양식같은 영상을 만드는 것이 우리의 목표입니다.</p>
                                                                     </h3>
                                                                 </div>
                                                             </div>
@@ -525,7 +577,7 @@
                                             <div class="s-title " rid="153">
                                                 <div class="s-component s-text" rid="154">
                                                     <h2 class="s-component-content s-font-title" rid="155">
-                                                        <p>Our Work</p>
+                                                        <p class="section-title">Our Work</p>
                                                     </h2>
                                                 </div>
                                             </div>
@@ -563,7 +615,7 @@
                                                                 <div class="s-item-title" rid="176">
                                                                     <div class="s-component s-text" rid="177">
                                                                         <h3 class="s-component-content s-font-heading" rid="178">
-                                                                            <p>Mobile Video</p>
+                                                                            <p class="section-subtitle">Mobile Video</p>
                                                                         </h3>
                                                                     </div>
                                                                 </div>
@@ -577,9 +629,9 @@
                                                                 <div class="s-item-text" rid="182">
                                                                     <div class="s-component s-text" rid="183">
                                                                         <div class="s-component-content s-font-body" rid="184">
-                                                                            <p>SNS를 중심으로 하는 모바일 영상 콘텐츠 시장에 발맞춰</p>
-                                                                            <p>삼복프로덕션은 스토리라인을 중심으로 하는 웹드라마, 웹무비를 제작합니다.</p>
-                                                                            <p>이를 통해, 우리는 세상이 원하는 이야기를 함께 만들어 나가고자 합니다.</p>
+                                                                            <p class="section-content">SNS를 중심으로 하는 모바일 영상 콘텐츠 시장에 발맞춰</p>
+                                                                            <p class="section-content">삼복프로덕션은 스토리라인을 중심으로 하는 웹드라마, 웹무비를 제작합니다.</p>
+                                                                            <p class="section-content">이를 통해, 우리는 세상이 원하는 이야기를 함께 만들어 나가고자 합니다.</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -600,8 +652,8 @@
                                                                 <div class="s-item-text" rid="193">
                                                                     <div class="s-component s-text" rid="194">
                                                                         <div class="s-component-content s-font-body" rid="195">
-                                                                            <p>또한, 바이럴 마케팅 영상이나 현장스케치 영상 등</p>
-                                                                            <p>다양한 사람들을 만나고, 소통할 수 있는 곳으로 삼복은 찾아갑니다.</p>
+                                                                            <p class="section-content">또한, 바이럴 마케팅 영상이나 현장스케치 영상 등</p>
+                                                                            <p class="section-content">다양한 사람들을 만나고, 소통할 수 있는 곳으로 삼복은 찾아갑니다.</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -636,14 +688,14 @@
                                             <div class="s-title " rid="209">
                                                 <div class="s-component s-text" rid="210">
                                                     <h2 class="s-component-content s-font-title" rid="211">
-                                                        <p>Working Process</p>
+                                                        <p class="section-title">Working Process</p>
                                                     </h2>
                                                 </div>
                                             </div>
                                             <div class="s-subtitle" rid="212">
                                                 <div class="s-component s-text" rid="213">
                                                     <h4 class="s-component-content s-font-heading" rid="214">
-                                                        <p>Just suitable for your project</p>
+                                                        <p class="section-content">Just suitable for your project</p>
                                                     </h4>
                                                 </div>
                                             </div>
@@ -681,7 +733,7 @@
                                                                 <div class="s-item-title" rid="235">
                                                                     <div class="s-component s-text" rid="236">
                                                                         <h3 class="s-component-content s-font-heading" rid="237">
-                                                                            <p>기획부터 수정까지</p>
+                                                                            <p class="section-subtitle">기획부터 수정까지</p>
                                                                         </h3>
                                                                     </div>
                                                                 </div>
@@ -691,9 +743,9 @@
                                                                 <div class="s-item-text" rid="240">
                                                                     <div class="s-component s-text" rid="241">
                                                                         <div class="s-component-content s-font-body" rid="242">
-                                                                            <p>우리의 제작과정은 처음부터 끝까지 제작하려는 콘텐츠 위주로 구성됩니다.</p>
-                                                                            <p>기본 프로세스를 토대로 스토리라인에 따라 개별 프로세스를 세부 설정한 뒤에</p>
-                                                                            <p>기획을 시작하며, 컨펌 이후에도 2회에 걸쳐 추가 수정을 진행합니다.</p>
+                                                                            <p class="section-content">우리의 제작과정은 처음부터 끝까지 제작하려는 콘텐츠 위주로 구성됩니다.</p>
+                                                                            <p class="section-content">기본 프로세스를 토대로 스토리라인에 따라 개별 프로세스를 세부 설정한 뒤에</p>
+                                                                            <p class="section-content">기획을 시작하며, 컨펌 이후에도 2회에 걸쳐 추가 수정을 진행합니다.</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -717,21 +769,22 @@
                 <li class="slide s-section-5" id="contact" rid="246">
                     <div class="waypoint" rid="247"></div>
                     <a class="section-anchor" rid="248" style="top: -53px;"></a>
-                    <div class="s-bg-image s-bg-light-text s-contact-section s-section transition lazyloaded" style="background-repeat: repeat; background-size: auto; background-color: transparent; background-position: 50% 50%; background-image: url(&quot;https://uploads.strikinglycdn.com/static/backgrounds/pastel-solids/39.jpg&quot;);" data-bg="https://uploads.strikinglycdn.com/static/backgrounds/pastel-solids/39.jpg" rid="249">
+                    <div class="s-bg-image s-bg-light-text s-contact-section s-section transition lazyloaded" style="background-repeat: repeat; background-size: auto; background-color: transparent; background-position: 50% 50%; background-image: url('<%= @bg_pink_img %>');" data-bg="<%= @bg_pink_img %>" rid="249">
                         <div class="container" rid="250">
                             <div class="columns twelve offset-two" rid="251">
                                 <div class="s-title-group  " rid="252">
                                     <div class="s-title " rid="253">
                                         <div class="s-component s-text" rid="254">
                                             <h2 class="s-component-content s-font-title" rid="255">
-                                                <p>Contact</p>
+                                                <p class="section-title">Contact</p>
                                             </h2>
                                         </div>
                                     </div>
                                     <div class="s-subtitle" rid="256">
                                         <div class="s-component s-text" rid="257">
                                             <h4 class="s-component-content s-font-heading" rid="258">
-                                                <p>sambokproduction@naver.com</p>
+                                                <p class="section-subtitle">sambokproduction@naver.com</p>
+						<p class="section-content">서울시 중구 퇴계로36길 2, 131호(충무로영상센터)</p>
                                             </h4>
                                         </div>
                                     </div>
